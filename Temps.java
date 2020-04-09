@@ -9,14 +9,14 @@ import java.time.LocalDateTime;
 
 /**
  *
- * @author gilbo
+ * @author gilbo, habitante de la comarca
  */
 public class Temps {
     String dia;
     String hora;
     public Temps(){
-        this.dia = "";
-        this.hora = "";
+        this.dia = null;
+        this.hora = null;
     }
     public Temps(java.lang.String temps){
         String [] diaihora = temps.split(" ");
