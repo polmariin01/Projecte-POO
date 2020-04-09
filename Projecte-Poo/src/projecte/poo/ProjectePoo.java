@@ -7,15 +7,17 @@ package projecte.poo;
 
 /**
  *
- * @author gilbo
+ * @author gilbo, habitante de la comarca
  */
+
 public class ProjectePoo {
 
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String[] args) {
         // TODO code application logic here
-    }
+        System.out.println("Cardant la wea.");
     
 }
