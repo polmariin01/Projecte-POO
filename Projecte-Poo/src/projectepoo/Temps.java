@@ -12,31 +12,39 @@ import java.time.LocalDateTime;
  * @author gilbo
  */
 public class Temps {
+
     String dia;
     String hora;
-    public Temps(){
+
+    public Temps() {
         this.dia = null;
         this.hora = null;
     }
-    public Temps(java.lang.String temps){
-        String [] diaihora = temps.split(" ");
+
+    public Temps(java.lang.String temps) {
+        String[] diaihora = temps.split(" ");
         this.dia = diaihora[0];
         this.hora = diaihora[1];
     }
-    public void ara(){
+
+    public void ara() {
         this.dia = LocalDateTime.now().toString();
     }
-    public int comparaDia(Temps altre){
-        return (-1)*altre.dia.compareTo(this.dia);
+
+    public int comparaDia(Temps altre) {
+        return (-1) * altre.dia.compareTo(this.dia);
     }
-    public int comparaTemps(Temps altre){
-        if(this.comparaDia(altre)!=0){
+
+    public int comparaTemps(Temps altre) {
+        if (this.comparaDia(altre) != 0) {
             return this.comparaDia(altre);
-        }else {
+        } else {
             return this.hora.compareTo(altre.hora);
         }
     }
-    public java.lang.String toString(){
+
+    @Override
+    public java.lang.String toString() {
         return this.dia + " " + this.hora;
     }
 }
