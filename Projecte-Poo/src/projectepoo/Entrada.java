@@ -20,13 +20,14 @@ public class Entrada {
     public Entrada(java.lang.String titol, java.lang.String text, java.lang.String temps) {
         this.titol = titol;
         this.text = text;
-        if (temps.equals(null)) {
-            this.temps.ara();
-        } else {
+        /*if (!temps.equals(null)) {
             String[] datahora = temps.split(" ");
             this.temps.dia = datahora[0];
             this.temps.hora = datahora[1];
-        }
+        } else {
+            this.temps.ara();
+            
+        }*/
         this.id = nEntrades;
         nEntrades++;
     }
@@ -44,20 +45,21 @@ public class Entrada {
     }
 
     public static int compare(Entrada una, Entrada altra, java.lang.String criteri) {
-        if (criteri.equals("num")) {
-            if (una.id > altra.id) {
-                return -1;
-            }
-            if (una.id < altra.id) {
-                return 1;
-            } else {
+        switch (criteri) {
+            case "num":
+                if (una.id > altra.id) {
+                    return -1;
+                }
+                if (una.id < altra.id) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+                //repassar la part de criteri num pq esta fet amb pala
+            case "titol":
+                return una.titol.compareTo(altra.titol);
+            default:
                 return 0;
-            }
-            //repassar la part de criteri num pq esta fet amb pala
-        } else if (criteri.equals("titol")) {
-            return una.titol.compareTo(altra.titol);
-        } else {
-            return 0;
         }
     }
 

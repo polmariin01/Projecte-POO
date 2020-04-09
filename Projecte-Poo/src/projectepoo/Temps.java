@@ -28,7 +28,9 @@ public class Temps {
     }
 
     public void ara() {
-        this.dia = LocalDateTime.now().toString();
+        String[] parts = LocalDateTime.now().toString().split("T");
+        this.dia = parts[0];
+        this.hora = parts[1];
     }
 
     public int comparaDia(Temps altre) {

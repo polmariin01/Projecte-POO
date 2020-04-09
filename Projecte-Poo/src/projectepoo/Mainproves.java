@@ -13,14 +13,12 @@ public class Mainproves {
    
     
     public static void main (String[] args){
-        //Entrada e1 = new Entrada("Entrada 1","Aquest es el text de la entrada 1","2020-02-12 12:02:12");
+        Entrada e1 = new Entrada("Entrada 1","Aquest es el text de la entrada 1","");
         //Entrada e2 = new Entrada("Titol entrada 2","Aquest es el text de la entrada 2","2020-02-12 12:02:12");
-        //System.out.println("Id: "+e1.getId());
-        //System.out.println("Titol: "+e1.getTitol());
+        System.out.println("Id: "+e1.getId());
+        System.out.println("Titol: "+e1.getTitol());
         //System.out.println("Temps: "+e1.getQuan());
-        Temps t1 = new Temps();
-        t1.ara();
-        System.out.println(t1.toString());
+        
         
         
     }
