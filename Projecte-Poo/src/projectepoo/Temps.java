@@ -13,8 +13,8 @@ import java.time.LocalDateTime;
  */
 public class Temps {
 
-    String dia;
-    String hora;
+    public String dia;
+    public String hora;
 
     public Temps() {
         this.dia = null;
@@ -34,7 +34,7 @@ public class Temps {
     }
 
     public int comparaDia(Temps altre) {
-        return (-1) * altre.dia.compareTo(this.dia);
+        return altre.dia.compareTo(this.dia);
     }
 
     public int comparaTemps(Temps altre) {

@@ -25,7 +25,11 @@ public class Mainproves {
         System.out.println("Titol: "+e2.getTitol());
         System.out.println("Temps: "+e2.getQuan());
         
+        int a = Entrada.compare(e1,e2,"num");
+        int b = Entrada.compare(e1,e2,"titol");
+        int c = Entrada.compare(e1,e2,"vaina");
         
+        System.out.println(a+"  "+b+"  "+c);
     }
     
 }

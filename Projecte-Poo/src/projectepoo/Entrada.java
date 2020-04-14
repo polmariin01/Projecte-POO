@@ -47,16 +47,9 @@ public class Entrada {
 
     public static int compare(Entrada una, Entrada altra, java.lang.String criteri) {
         switch (criteri) {
+            
             case "num":
-                if (una.id > altra.id) {
-                    return -1;
-                }
-                if (una.id < altra.id) {
-                    return 1;
-                } else {
-                    return 0;
-                }
-                //repassar la part de criteri num pq esta fet amb pala
+                return Integer.compare(una.id,altra.id);
             case "titol":
                 return una.titol.compareTo(altra.titol);
             default:
