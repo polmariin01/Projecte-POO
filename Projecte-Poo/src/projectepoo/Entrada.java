@@ -11,11 +11,11 @@ package projectepoo;
  */
 public class Entrada {
 
-    java.lang.String titol;
-    java.lang.String text;
-    Temps temps;
-    int nEntrades = 0;
-    int id;
+    public java.lang.String titol;
+    public java.lang.String text;
+    public Temps temps;
+    public static int nEntrades = 0;
+    public int id;
 
     public Entrada(java.lang.String titol, java.lang.String text, java.lang.String temps) {
         this.titol = titol;
