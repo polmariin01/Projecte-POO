@@ -47,6 +47,6 @@ public class Temps {
 
     @Override
     public java.lang.String toString() {
-        return this.dia + " " + this.hora;
+        return this.dia + " " + this.hora.substring(0,8);
     }
 }

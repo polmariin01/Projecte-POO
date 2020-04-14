@@ -20,14 +20,15 @@ public class Entrada {
     public Entrada(java.lang.String titol, java.lang.String text, java.lang.String temps) {
         this.titol = titol;
         this.text = text;
-        /*if (!temps.equals(null)) {
+        this.temps = new Temps();
+        if (temps.equals("")) {
+            this.temps.ara();
+        } else {
             String[] datahora = temps.split(" ");
             this.temps.dia = datahora[0];
             this.temps.hora = datahora[1];
-        } else {
-            this.temps.ara();
-            
-        }*/
+        }
+        
         this.id = nEntrades;
         nEntrades++;
     }
