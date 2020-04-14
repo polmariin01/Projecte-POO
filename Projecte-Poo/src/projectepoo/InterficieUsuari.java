@@ -8,7 +8,28 @@ package projectepoo;
 /**
  *
  * @author Usuari
+ * Fa: Pol
  */
 public class InterficieUsuari {
     
+    
+    public InterficieUsuari(){
+        
+    }
+    
+    public void cicle(){
+        
+    }
+    
+    public void executaOpcio(java.lang.String op){
+        
+    }
+    
+    public static void main(java.lang.String[] args){
+        
+    }
+    
+    public void mostraOpcions(){
+        
+    }
 }

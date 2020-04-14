@@ -8,7 +8,36 @@ package projectepoo;
 /**
  *
  * @author Usuari
+ * Fa: Pol
  */
 public class Controlador {
     
+    
+    public void dates(){
+        
+    }
+    
+    public void eliminaEntrada(int num){
+        
+    }
+    
+    public void index(){
+        
+    }
+    
+    public void mostraEntrada(int num){
+        
+    }
+    
+    public void mostraEntrades(){
+        
+    }
+    
+    public void novaEntrada(){
+        
+    }
+    
+    public void ordena(){
+        
+    }
 }
