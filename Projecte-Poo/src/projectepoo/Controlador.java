@@ -12,7 +12,14 @@ package projectepoo;
  */
 public class Controlador {
     
+    IO io;
+    EntradesBlog entrades;
     
+    public Controlador(){
+        this.io = new IO();
+        this.entrades = new EntradesBlog();
+    }
+        
     public void dates(){
         
     }
