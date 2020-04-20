@@ -25,26 +25,39 @@ public class Controlador {
     }
     
     public void eliminaEntrada(int num){
-        
+        this.mostraEntrada(num);
+        this.entrades.elimina(num);
     }
     
     public void index(){
-        
+        IO.mostrarText("Index {\n " + entrades.index() + "\n} ");
     }
     
     public void mostraEntrada(int num){
-        
+        this.entrades.agafa(num);
     }
     
     public void mostraEntrades(){
         
+        for (int i = 0; i<this.entrades.Entrades.size();i++){
+            this.mostraEntrada(i);
+        }
     }
     
     public void novaEntrada(){
+        Entrada e;
+        IO.mostrarText("Titol? ");
+        String t = IO.llegeixText();
+        IO.mostrarText("Text? ");       
+        String ttx = IO.llegeixText();
+        IO.mostrarText("Dia i hora? ");        
+        String d = IO.llegeixText();        //Falta posar 'ARA' i control d'errors en el format de la data
         
+        e = new Entrada(t,ttx,d);
+        this.entrades.afageixOrdenat(e);
     }
     
     public void ordena(){
-        
+        this.entrades.ordena();
     }
 }

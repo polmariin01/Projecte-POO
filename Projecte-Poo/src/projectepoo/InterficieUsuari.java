@@ -5,8 +5,6 @@
  */
 package projectepoo;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Usuari
@@ -24,9 +22,8 @@ public class InterficieUsuari {
     
     public void cicle(){
         java.lang.String opcio;
-        Scanner lector = new Scanner(System.in);
         this.mostraOpcions();
-        opcio = lector.nextLine();
+        opcio = IO.llegeixText();
         this.executaOpcio(opcio);
     }
     
@@ -66,8 +63,8 @@ public class InterficieUsuari {
             case "FI":
             case "F":
                 break;
-            default:
-                throw Illegal­Argument­Exception("");
+            //default:
+              //  throw Illegal­Argument­Exception("");
         }
         
     }
@@ -78,17 +75,8 @@ public class InterficieUsuari {
     }
     
     public void mostraOpcions(){
-        System.out.println("Opcions:");
-        System.out.println();
-        System.out.println("    Index");
-        System.out.println("    Mostra <num>");
-        System.out.println("    Nova");        
-        System.out.println("    Elimina <num>");
-        System.out.println("    Ordena");
-        System.out.println("    Dates <inici> <fi>");
-        System.out.println("    Totes");
-        System.out.println("    Fi");
-        System.out.println();
-        System.out.println("Introdueix una opció: ");
+        IO.mostrarText("Opcions: \n\n    Index\n    Mostra <num>\n    Nova\n    "
+                + "Elimina <num>\n    Ordena\n    Dates <inici> <fi>\n    "
+                + "Totes\n    Fi\n\nIntrodueix una opció: ");
     }
 }

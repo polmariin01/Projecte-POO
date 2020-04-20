@@ -5,6 +5,8 @@
  */
 package projectepoo;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Usuari
@@ -12,4 +14,13 @@ package projectepoo;
  */
 public class IO {
     
+    public static java.util.Scanner teclat = new Scanner(System.in);;
+    
+    public static java.lang.String llegeixText(){
+        return teclat.nextLine();
+    }
+    
+    public static void mostrarText(java.lang.String text){
+        System.out.print(text);
+    }
 }
