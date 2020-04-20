@@ -17,7 +17,6 @@ public class InterficieUsuari {
     
     public InterficieUsuari(){
         this.controlador = new Controlador();
-        this.io = new IO();
     }
     
     public void cicle(){
@@ -77,8 +76,8 @@ public class InterficieUsuari {
     }
     
     public void mostraOpcions(){
-        IO.mostrarText("Opcions: \n\n    Index\n    Mostra <num>\n    Nova\n    "
-                + "Elimina <num>\n    Ordena\n    Dates <inici> <fi>\n    "
-                + "Totes\n    Fi\n\nIntrodueix una opció: ");
+        IO.mostrarText("\nOpcions: \n\n\tIndex\n\tMostra <num>\n\tNova\n\t"
+                + "Elimina <num>\n\tOrdena\n\tDates <inici> <fi>\n\t"
+                + "Totes\n\tFi\n\nIntrodueix una opció: ");
     }
 }

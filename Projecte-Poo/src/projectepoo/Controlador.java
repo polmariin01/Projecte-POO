@@ -13,11 +13,10 @@ package projectepoo;
 public class Controlador {
     
     IO io;
-    EntradesBlog entrades;
+    EntradesBlog entradesBlog;
     
     public Controlador(){
-        this.io = new IO();
-        this.entrades = new EntradesBlog();
+        this.entradesBlog = new EntradesBlog();
     }
         
     public void dates(){
@@ -26,21 +25,21 @@ public class Controlador {
     
     public void eliminaEntrada(int num){
         this.mostraEntrada(num);
-        this.entrades.elimina(num);
+        this.entradesBlog.elimina(num);
     }
     
     public void index(){
-        IO.mostrarText("Index {\n " + entrades.index() + "\n} \n\n");
+        IO.mostrarText("Index {\n " + entradesBlog.index() + "\n} \n");
     }
     
     public void mostraEntrada(int num){
-        Entrada e = this.entrades.agafa(num);
+        Entrada e = this.entradesBlog.agafa(num);
         IO.mostrarText(e.toString());
     }
     
     public void mostraEntrades(){
         
-        for (int i = 0; i<this.entrades.Entrades.size();i++){
+        for (int i = 0; i<this.entradesBlog.Entrades.size();i++){
             this.mostraEntrada(i);
         }
     }
@@ -55,10 +54,10 @@ public class Controlador {
         String d = IO.llegeixText();        //Falta posar 'ARA' i control d'errors en el format de la data
         
         e = new Entrada(t,ttx,d);
-        this.entrades.afageixOrdenat(e);
+        this.entradesBlog.afageixOrdenat(e);
     }
     
     public void ordena(){
-        this.entrades.ordena();
+        this.entradesBlog.ordena();
     }
 }
