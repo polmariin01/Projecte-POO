@@ -34,7 +34,7 @@ public class Temps {
     }
 
     public int comparaDia(Temps altre) {
-        return (-1)*altre.dia.compareTo(this.dia);
+        return altre.dia.compareTo(this.dia);
     }
 
     public int comparaTemps(Temps altre) {

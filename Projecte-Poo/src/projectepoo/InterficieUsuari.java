@@ -63,15 +63,17 @@ public class InterficieUsuari {
             case "FI":
             case "F":
                 break;
-            //default:
-              //  throw Illegal­Argument­Exception("");
+            default:
+                throw new Illegal­Argument­Exception("El text introduit no coincideix amb cap opcio");
         }
         
     }
     
     public static void main(java.lang.String[] args){
         InterficieUsuari interficie = new InterficieUsuari();
-        interficie.cicle();
+        while (1==1){
+            interficie.cicle();
+        }
     }
     
     public void mostraOpcions(){

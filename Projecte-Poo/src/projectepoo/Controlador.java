@@ -30,11 +30,12 @@ public class Controlador {
     }
     
     public void index(){
-        IO.mostrarText("Index {\n " + entrades.index() + "\n} ");
+        IO.mostrarText("Index {\n " + entrades.index() + "\n} \n\n");
     }
     
     public void mostraEntrada(int num){
-        this.entrades.agafa(num);
+        Entrada e = this.entrades.agafa(num);
+        IO.mostrarText(e.toString());
     }
     
     public void mostraEntrades(){
