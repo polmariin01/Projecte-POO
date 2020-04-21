@@ -50,11 +50,12 @@ public class Entrada {
             case "num":
                 return Integer.compare(una.id, altra.id);
             case "titol":
-                return (-1)* altra.titol.compareTo(una.titol);
+                return (-1)*altra.titol.compareTo(una.titol);
             default:
                 return 0;
         }
-    }
+    } 
+    
 
     @Override
     public java.lang.String toString() {
