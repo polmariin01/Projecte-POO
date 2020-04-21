@@ -22,12 +22,20 @@ public class Controlador {
     }
 
     public void dates() {
-
+        //estic fent, no tocar
     }
 
     public void eliminaEntrada(int num) {
-        this.mostraEntrada(num);
-        this.entradesBlog.elimina(num);
+
+        if (this.entradesBlog.Entrades.isEmpty()) {
+            IO.mostrarText("Llista buida.\n");
+        } else if (num >= this.entradesBlog.Entrades.size() || num < 0) {
+            IO.mostrarText("Entrada no vàlida.\n");
+        } else {
+            Entrada e = this.entradesBlog.elimina(num);
+            IO.mostrarText(e.toString());
+        }
+
     }
 
     public void index() {
