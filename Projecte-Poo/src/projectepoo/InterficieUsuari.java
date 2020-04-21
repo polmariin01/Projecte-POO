@@ -95,6 +95,7 @@ public class InterficieUsuari {
                 break;
             case "FI":
             case "F":
+                IO.mostrarText("Adiós!");
                 System.exit(0);
                 break;
             default:
@@ -105,7 +106,8 @@ public class InterficieUsuari {
 
     public static void main(java.lang.String[] args) {
         InterficieUsuari interficie = new InterficieUsuari();
-        while (1 == 1) {
+        IO.mostrarText("Hola!\n");
+        while (1==1) {
             interficie.cicle();
         }
     }
