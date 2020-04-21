@@ -5,6 +5,9 @@
  */
 package projectepoo;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  *
  * @author Usuari Fa: Pol
@@ -33,15 +36,16 @@ public class Controlador {
 
     public void mostraEntrada(int num) {
         Entrada e = this.entradesBlog.agafa(num);
-        if (e.equals(null)){
-            IO.mostrarText("Entrada no vàlida.");
+        if (this.entradesBlog.Entrades.isEmpty()){
+            IO.mostrarText("Llista buida.\n");
+        } else if (e.equals(null)){
+            IO.mostrarText("Entrada no vàlida.\n");
         } else {
             IO.mostrarText(e.toString());
         }
     }
 
     public void mostraEntrades() {
-
         for (int i = 0; i < this.entradesBlog.Entrades.size(); i++) {
             this.mostraEntrada(i);
         }
@@ -56,8 +60,8 @@ public class Controlador {
         String d;
         int a;
         do {
-            IO.mostrarText("Dia i hora? ");
-            d = IO.llegeixText();        //Falta posar 'ARA' i control d'errors en el format de la data
+            IO.mostrarText("Dia i hora? (aaaa-mm-dd< hh:mm:ss>, Return=Ara) ");
+            d = IO.llegeixText();
             a = this.comprobarFormatData(d);
             if (a<0) {
                 IO.mostrarText("\nFormat de la data incorrecte.\n");
@@ -75,6 +79,16 @@ public class Controlador {
     }
 
     public void ordena() {
+        java.lang.String criteri;
+        do {
+            IO.mostrarText("Criteri? (num/titol) ");
+            criteri = IO.llegeixText();
+            if(criteri.equalsIgnoreCase("num") || criteri.equalsIgnoreCase("titol")){
+                IO.mostrarText("Criteri incorrecte.");
+            }
+        } while(criteri.equalsIgnoreCase("num") || criteri.equalsIgnoreCase("titol"));
+        
+        this.entradesBlog.setCriteri(criteri.toLowerCase());
         this.entradesBlog.ordena();
     }
 
@@ -119,3 +133,5 @@ public class Controlador {
 
         return 2;
     }
+    
+}
