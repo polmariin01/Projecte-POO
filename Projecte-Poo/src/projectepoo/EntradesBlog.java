@@ -49,7 +49,7 @@ public class EntradesBlog {
         for (int i = 0; i < this.Entrades.size(); i++) {
             for (int j = 1; j < this.Entrades.size() - i; j++) {
                 comp = Entrada.compare(this.Entrades.get(j), this.Entrades.get(j - 1), this.criteri);
-                if (comp > 0) {
+                if (comp < 0) {
                     auxiliar = this.Entrades.get(j);
                     this.Entrades.set(j, this.Entrades.get(j - 1));
                     this.Entrades.set(j - 1, auxiliar);
