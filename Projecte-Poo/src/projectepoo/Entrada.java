@@ -48,7 +48,7 @@ public class Entrada {
     public static int compare(Entrada una, Entrada altra, java.lang.String criteri) {
         switch (criteri) {
             case "num":
-                return Integer.compare(una.id, altra.id);
+                return (-1)*Integer.compare(una.id, altra.id);
             case "titol":
                 return altra.titol.compareTo(una.titol);
             default:
