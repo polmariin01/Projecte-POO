@@ -7,30 +7,29 @@ package projectepoo;
 
 /**
  *
- * @author Usuari
- * Fa: Pol
+ * @author Usuari Fa: Pol
  */
 public class InterficieUsuari {
-    
+
     Controlador controlador;
     IO io;
-    
-    public InterficieUsuari(){
+
+    public InterficieUsuari() {
         this.controlador = new Controlador();
     }
-    
-    public void cicle(){
+
+    public void cicle() {
         java.lang.String opcio;
         this.mostraOpcions();
         opcio = IO.llegeixText();
         this.executaOpcio(opcio);
     }
-    
-    public void executaOpcio(java.lang.String op){
-        java.lang.String com[] = op.split("");
+
+    public void executaOpcio(java.lang.String op) {
+        java.lang.String com[] = op.split(" ");
         com[0] = com[0].toUpperCase();
-        
-        switch(com[0]){
+
+        switch (com[0]) {
             case "INDEX":
             case "I":
                 controlador.index();
@@ -45,7 +44,12 @@ public class InterficieUsuari {
                 break;
             case "ELIMINA":
             case "E":
-                controlador.eliminaEntrada(Integer.valueOf(com[1]));
+                if (com.length==2 && Integer.valueOf(com[1])>0) {
+                    controlador.eliminaEntrada(Integer.valueOf(com[1]));            
+                } else {
+                    IO.mostrarText("Entrada incorrecte.\n");
+                }
+
                 break;
             case "ORDENA":
             case "O":
@@ -65,17 +69,17 @@ public class InterficieUsuari {
             default:
                 throw new Illegal­Argument­Exception("El text introduit no coincideix amb cap opcio");
         }
-        
+
     }
-    
-    public static void main(java.lang.String[] args){
+
+    public static void main(java.lang.String[] args) {
         InterficieUsuari interficie = new InterficieUsuari();
-        while (1==1){
+        while (1 == 1) {
             interficie.cicle();
         }
     }
-    
-    public void mostraOpcions(){
+
+    public void mostraOpcions() {
         IO.mostrarText("\nOpcions: \n\n\tIndex\n\tMostra <num>\n\tNova\n\t"
                 + "Elimina <num>\n\tOrdena\n\tDates <inici> <fi>\n\t"
                 + "Totes\n\tFi\n\nIntrodueix una opció: ");

@@ -28,7 +28,7 @@ public class Entrada {
             this.temps.dia = datahora[0];
             this.temps.hora = datahora[1];
         }
-        
+
         this.id = nEntrades;
         nEntrades++;
     }
@@ -47,9 +47,9 @@ public class Entrada {
 
     public static int compare(Entrada una, Entrada altra, java.lang.String criteri) {
         switch (criteri) {
-            
+
             case "num":
-                return Integer.compare(una.id,altra.id);
+                return Integer.compare(una.id, altra.id);
             case "titol":
                 return una.titol.compareTo(altra.titol);
             default:

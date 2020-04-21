@@ -9,18 +9,19 @@ import java.util.Scanner;
 
 /**
  *
- * @author Usuari
- * Fa: Gil
+ * @author Usuari Fa: Gil
  */
 public class IO {
+
+    public static java.util.Scanner teclat = new Scanner(System.in);
+
     
-    public static java.util.Scanner teclat = new Scanner(System.in);;
     
-    public static java.lang.String llegeixText(){
+    public static java.lang.String llegeixText() {
         return teclat.nextLine();
     }
-    
-    public static void mostrarText(java.lang.String text){
+
+    public static void mostrarText(java.lang.String text) {
         System.out.print(text);
     }
 }
