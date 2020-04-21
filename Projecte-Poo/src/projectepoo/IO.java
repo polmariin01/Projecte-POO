@@ -15,8 +15,6 @@ public class IO {
 
     public static java.util.Scanner teclat = new Scanner(System.in);
 
-    
-    
     public static java.lang.String llegeixText() {
         return teclat.nextLine();
     }

@@ -44,10 +44,10 @@ public class InterficieUsuari {
             case "MOS":
             case "MO":
             case "M":
-                if (com.length==2 && Integer.valueOf(com[1])>0) {
+                if (com.length == 2 && Integer.valueOf(com[1]) >= 0) {
                     IO.mostrarText("\n");
                     controlador.mostraEntrada(Integer.valueOf(com[1]));
-                    IO.mostrarText("\n");            
+                    IO.mostrarText("\n");
                 } else {
                     IO.mostrarText("Entrada incorrecte.\n");
                 }
@@ -65,8 +65,8 @@ public class InterficieUsuari {
             case "ELI":
             case "EL":
             case "E":
-                if (com.length==2 && Integer.valueOf(com[1])>0) {
-                    controlador.eliminaEntrada(Integer.valueOf(com[1]));            
+                if (com.length == 2 && Integer.valueOf(com[1]) > 0) {
+                    controlador.eliminaEntrada(Integer.valueOf(com[1]));
                 } else {
                     IO.mostrarText("Entrada incorrecte.\n");
                 }
@@ -98,7 +98,7 @@ public class InterficieUsuari {
                 System.exit(0);
                 break;
             default:
-                throw new Illegal­Argument­Exception("El text introduit no coincideix amb cap opcio");
+                IO.mostrarText("El text introduit no coincideix amb cap opcio.\n");
         }
 
     }

@@ -36,39 +36,33 @@ public class EntradesBlog {
     }
 
     public Entrada agafa(int num) {
-        if ((num > Entrades.size() - 1) || (num < 0)) {
-            return null;
-        } else {
-            return this.Entrades.get(num);
-        }
+        return this.Entrades.get(num);
     }
 
     public Entrada elimina(int num) {
-        if ((num > Entrades.size() - 1) || (num < 0)) {
-            return null;
-        } else {
-            return this.Entrades.remove(num);
-        }
+        return this.Entrades.remove(num);
     }
 
     public void ordena() {
-        for(int i=0;i<this.Entrades.size();i++){
-            for(int k=1;k<this.Entrades.size()-i;k++){
-                if(Entrada.compare(this.Entrades.get(k), this.Entrades.get(k-1), this.criteri)>0){
-                        Entrada auxiliar;
-                        auxiliar= this.Entrades.get(k);
-                        this.Entrades<k> = this.Entrades<k-1>;
-                        this.Entrades.get(k-1)= auxiliar;
-                    }
+        Entrada auxiliar;
+        int comp;
+        for (int i = 0; i < this.Entrades.size(); i++) {
+            for (int j = 1; j < this.Entrades.size() - i; j++) {
+                comp = Entrada.compare(this.Entrades.get(j), this.Entrades.get(j - 1), this.criteri);
+                if (comp < 0) {
+                    auxiliar = this.Entrades.get(j);
+                    this.Entrades.set(j, this.Entrades.get(j - 1));
+                    this.Entrades.set(j - 1, auxiliar);
                 }
             }
+        }
     }
 
     public java.lang.String index() {
-        java.lang.String tornar="";
+        java.lang.String tornar = "";
         this.ordena();
         for (int i = 0; i < this.Entrades.size(); i++) {
-            tornar = tornar + "\t" + this.Entrades.get(i).getTitol() + " " + this.Entrades.get(i).getId() + "\n";
+            tornar = tornar + "\t" + this.Entrades.get(i).getId() + " " + this.Entrades.get(i).getTitol() + "\n";
         }
         return tornar;
     }

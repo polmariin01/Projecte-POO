@@ -47,11 +47,10 @@ public class Entrada {
 
     public static int compare(Entrada una, Entrada altra, java.lang.String criteri) {
         switch (criteri) {
-
             case "num":
                 return Integer.compare(una.id, altra.id);
             case "titol":
-                return una.titol.compareTo(altra.titol);
+                return altra.titol.compareTo(una.titol);
             default:
                 return 0;
         }

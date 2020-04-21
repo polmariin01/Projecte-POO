@@ -31,16 +31,17 @@ public class Controlador {
     }
 
     public void index() {
-        IO.mostrarText("\nIndex {\n" + entradesBlog.index() + "\n} \n");
+        IO.mostrarText("\nIndex {\n" + entradesBlog.index() + "}\n");
     }
 
     public void mostraEntrada(int num) {
-        Entrada e = this.entradesBlog.agafa(num);
-        if (this.entradesBlog.Entrades.isEmpty()){
+
+        if (this.entradesBlog.Entrades.isEmpty()) {
             IO.mostrarText("Llista buida.\n");
-        } else if (e.equals(null)){
+        } else if (num >= this.entradesBlog.Entrades.size() || num < 0) {
             IO.mostrarText("Entrada no vàlida.\n");
         } else {
+            Entrada e = this.entradesBlog.agafa(num);
             IO.mostrarText(e.toString());
         }
     }
@@ -63,17 +64,17 @@ public class Controlador {
             IO.mostrarText("Dia i hora? (aaaa-mm-dd< hh:mm:ss>, Return=Ara) ");
             d = IO.llegeixText();
             a = this.comprobarFormatData(d);
-            if (a<0) {
+            if (a < 0) {
                 IO.mostrarText("\nFormat de la data incorrecte.\n");
             }
-        } while (a<0);
+        } while (a < 0);
 
-        if (a==1){
+        if (a == 1) {
             Temps temps = new Temps();
             temps.ara();
             d = temps.dia + " " + a;
         }
-        
+
         e = new Entrada(t, ttx, d);
         this.entradesBlog.afageixOrdenat(e);
     }
@@ -83,11 +84,11 @@ public class Controlador {
         do {
             IO.mostrarText("Criteri? (num/titol) ");
             criteri = IO.llegeixText();
-            if(criteri.equalsIgnoreCase("num") || criteri.equalsIgnoreCase("titol")){
+            if (!criteri.equalsIgnoreCase("num") && !criteri.equalsIgnoreCase("titol")) {
                 IO.mostrarText("Criteri incorrecte.");
             }
-        } while(criteri.equalsIgnoreCase("num") || criteri.equalsIgnoreCase("titol"));
-        
+        } while (!criteri.equalsIgnoreCase("num") && !criteri.equalsIgnoreCase("titol"));
+
         this.entradesBlog.setCriteri(criteri.toLowerCase());
         this.entradesBlog.ordena();
     }
@@ -104,9 +105,9 @@ public class Controlador {
                 if (hour.length != 3) {
                     return -1;
                 } else {
-                    if (Integer.valueOf(hour[0])<0 || Integer.valueOf(hour[1])<0 || Integer.valueOf(hour[2])<0){
+                    if (Integer.valueOf(hour[0]) < 0 || Integer.valueOf(hour[1]) < 0 || Integer.valueOf(hour[2]) < 0) {
                         return -1;
-                    } else if (Integer.valueOf(hour[0])>=24 || Integer.valueOf(hour[1])>=60 || Integer.valueOf(hour[2])>=60){
+                    } else if (Integer.valueOf(hour[0]) >= 24 || Integer.valueOf(hour[1]) >= 60 || Integer.valueOf(hour[2]) >= 60) {
                         return -1;
                     } else {
                         return 1;
@@ -133,5 +134,5 @@ public class Controlador {
 
         return 2;
     }
-    
+
 }
