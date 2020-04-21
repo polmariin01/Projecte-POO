@@ -65,7 +65,7 @@ public class InterficieUsuari {
             case "ELI":
             case "EL":
             case "E":
-                if (com.length == 2 && Integer.valueOf(com[1]) > 0) {
+                if (com.length == 2 && Integer.valueOf(com[1]) >= 0) {
                     controlador.eliminaEntrada(Integer.valueOf(com[1]));
                 } else {
                     IO.mostrarText("Entrada incorrecte.\n");
