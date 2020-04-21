@@ -35,7 +35,6 @@ public class Controlador {
             Entrada e = this.entradesBlog.elimina(num);
             IO.mostrarText(e.toString());
         }
-
     }
 
     public void index() {
@@ -57,6 +56,7 @@ public class Controlador {
     public void mostraEntrades() {
         for (int i = 0; i < this.entradesBlog.Entrades.size(); i++) {
             this.mostraEntrada(i);
+            IO.mostrarText("\n");
         }
     }
 
