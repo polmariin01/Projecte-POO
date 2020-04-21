@@ -50,7 +50,7 @@ public class Entrada {
             case "num":
                 return Integer.compare(una.id, altra.id);
             case "titol":
-                return altra.titol.compareTo(una.titol);
+                return una.titol.compareTo(altra.titol);
             default:
                 return 0;
         }
