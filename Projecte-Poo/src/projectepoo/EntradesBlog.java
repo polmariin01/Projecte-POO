@@ -52,10 +52,16 @@ public class EntradesBlog {
     }
 
     public void ordena() {
-        if (this.criteri.equals("num")) {
-            this.Entrades.iterator();
-        }
-
+        for(int i=0;i<this.Entrades.size();i++){
+            for(int k=1;k<this.Entrades.size()-i;k++){
+                if(Entrada.compare(this.Entrades.get(k), this.Entrades.get(k-1), this.criteri)>0){
+                        Entrada auxiliar;
+                        auxiliar= this.Entrades.get(k);
+                        this.Entrades<k> = this.Entrades<k-1>;
+                        this.Entrades.get(k-1)= auxiliar;
+                    }
+                }
+            }
     }
 
     public java.lang.String index() {
