@@ -36,7 +36,13 @@ public class InterficieUsuari {
                 break;
             case "MOSTRA":
             case "M":
-                controlador.mostraEntrada(Integer.valueOf(com[1]));
+                if (com.length==2 && Integer.valueOf(com[1])>0) {
+                    IO.mostrarText("\n");
+                    controlador.mostraEntrada(Integer.valueOf(com[1]));
+                    IO.mostrarText("\n");            
+                } else {
+                    IO.mostrarText("Entrada incorrecte.\n");
+                }
                 break;
             case "NOVA":
             case "N":
@@ -49,7 +55,6 @@ public class InterficieUsuari {
                 } else {
                     IO.mostrarText("Entrada incorrecte.\n");
                 }
-
                 break;
             case "ORDENA":
             case "O":

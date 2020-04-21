@@ -32,13 +32,12 @@ public class Controlador {
     }
 
     public void mostraEntrada(int num) {
-        if (num<this.entradesBlog.Entrades.size()){
-            Entrada e = this.entradesBlog.agafa(num);
-            IO.mostrarText(e.toString());
+        Entrada e = this.entradesBlog.agafa(num);
+        if (e.equals(null)){
+            IO.mostrarText("Entrada no vàlida.");
         } else {
-            IO.mostrarText("Entrada no vàlida.\n");
+            IO.mostrarText(e.toString());
         }
-
     }
 
     public void mostraEntrades() {
@@ -120,4 +119,3 @@ public class Controlador {
 
         return 2;
     }
-}
