@@ -20,17 +20,25 @@ public class Controlador {
 
     public void dates() {
         java.lang.String data;
-        Temps t1, t2;
-        
-        IO.mostrarText("Dia inicial? (aaaa-mm-dd) ");
-        data = IO.llegeixText();
-        t1 = new Temps(data + " 00:00:00");
-        IO.mostrarText("Dia final? (aaaa-mm-dd) ");
-        data = IO.llegeixText();
-        t2 = new Temps(data + " 23:59:59");        
-        
-        IO.mostrarText(this.entradesBlog.entreDates(t1,t2));
-}
+        java.lang.String[] actual = {"inicial", "final", " 00:00:00", " 23:59:59"}, dia;
+        Temps[] t;
+        boolean be = false;
+        for (int i = 0; i < 2; i++) {
+            do {
+                IO.mostrarText("Dia " + actual[i] + "? (aaaa-mm-dd) ");
+                data = IO.llegeixText();
+                dia = data.split("-");
+                if (dia.length == 3) {
+                    if (Integer.valueOf(dia[1]) > 0 && Integer.valueOf(dia[2]) > 0 && Integer.valueOf(dia[1]) <= 12 && Integer.valueOf(dia[2]) <= 31) {
+                        t[i] = new Temps(data + actual[2 + i]);
+                        be = true;
+                    }
+                }
+            } while (!be);
+            be = false;
+        }
+        IO.mostrarText(this.entradesBlog.entreDates(t[0], t[1]));
+    }
 
     public void eliminaEntrada(int num) {
 
@@ -75,53 +83,53 @@ public class Controlador {
         String ttx = IO.llegeixText();
         String d, dia, hora;
         String[] text, dies, hores;
-        int a=0;
-        
+        int a = 0;
+
         do {
             IO.mostrarText("Dia i hora? (aaaa-mm-dd< hh:mm:ss>, Return=Ara) ");
             d = IO.llegeixText();
-            
+
             Temps temps = new Temps();
             temps.ara();
-            dia=temps.dia;
-            hora=temps.hora;
-            
-            if (!d.isBlank()){
-                a=1;
+            dia = temps.dia;
+            hora = temps.hora;
+
+            if (d.isBlank()) {
+                a = 1;
             } else {
 
-                text=d.split(" ");
+                text = d.split(" ");
 
-                switch(text.length){
-                        case 2:
-                            dies=text[0].split("-");
-                            if(dies.length==3){
-                                if(Integer.valueOf(dies[0])>0 && Integer.valueOf(dies[1])>0 && Integer.valueOf(dies[2])>0 && Integer.valueOf(dies[1])<=12 && Integer.valueOf(dies[2])<=31){
-                                    dia=dies[0]+"-"+dies[1]+"-"+dies[2];
-                                } else {
-                                    break;
-                                }
+                switch (text.length) {
+                    case 2:
+                        dies = text[0].split("-");
+                        if (dies.length == 3) {
+                            if (Integer.valueOf(dies[0]) > 0 && Integer.valueOf(dies[1]) > 0 && Integer.valueOf(dies[2]) > 0 && Integer.valueOf(dies[1]) <= 12 && Integer.valueOf(dies[2]) <= 31) {
+                                dia = dies[0] + "-" + dies[1] + "-" + dies[2];
                             } else {
                                 break;
                             }
-                            text[0]=text[1];
-                        case 1:
-                            hores=text[0].split(":");
-                            if (hores.length==3){
-                                if(Integer.valueOf(hores[0])>=0 && Integer.valueOf(hores[1])>=0 && Integer.valueOf(hores[2])>=0 && Integer.valueOf(hores[0])<24 && Integer.valueOf(hores[1])<60 && Integer.valueOf(hores[2])<60){
-                                    hora=hores[0]+"-"+hores[1]+"-"+hores[2];
-                                    a=1;
-                                }
-                            }
+                        } else {
                             break;
+                        }
+                        text[0] = text[1];
+                    case 1:
+                        hores = text[0].split(":");
+                        if (hores.length == 3) {
+                            if (Integer.valueOf(hores[0]) >= 0 && Integer.valueOf(hores[1]) >= 0 && Integer.valueOf(hores[2]) >= 0 && Integer.valueOf(hores[0]) < 24 && Integer.valueOf(hores[1]) < 60 && Integer.valueOf(hores[2]) < 60) {
+                                hora = hores[0] + "-" + hores[1] + "-" + hores[2];
+                                a = 1;
+                            }
+                        }
+                        break;
                 }
             }
-            
-            if(a==0){
+
+            if (a == 0) {
                 IO.mostrarText("Format de la data incorrecte.\n");
             }
         } while (a == 0);
-                    
+
         e = new Entrada(t, ttx, dia + " " + hora);
         this.entradesBlog.afageixOrdenat(e);
     }
