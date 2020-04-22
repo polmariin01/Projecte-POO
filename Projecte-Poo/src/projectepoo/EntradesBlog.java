@@ -40,7 +40,10 @@ public class EntradesBlog {
     }
 
     public Entrada elimina(int num) {
-        boolean a = true;
+        
+        
+    
+        /*boolean a = true;
         for (Entrada Entrade : Entrades) {
             if(num == Entrade.id){
                 return this.Entrades.remove();
@@ -49,7 +52,7 @@ public class EntradesBlog {
         }
         if (a){
             return null;
-        }
+        }*/
     }
 
     public void ordena() {
