@@ -20,8 +20,8 @@ public class Entrada {
     public Entrada(java.lang.String titol, java.lang.String text, java.lang.String temps) {
         this.titol = titol;
         this.text = text;
-        this.temps = new Temps();
         if (temps.isBlank()) {
+            this.temps = new Temps();
             this.temps.ara();
         } else {
             this.temps = new Temps(temps);
