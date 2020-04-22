@@ -40,15 +40,28 @@ public class EntradesBlog {
     }
 
     public Entrada elimina(int num) {
+<<<<<<< HEAD
         boolean a = true;
         int i = 0;
+=======
+        
+        
+    
+        /*boolean a = true;
+>>>>>>> b346f663ddd8f4e949536fad19317c3ab4438277
         for (Entrada Entrade : Entrades) {
             if(num == Entrade.getId()){
                 return this.Entrades.remove(i);
             }
             i++;
         }
+<<<<<<< HEAD
         return null;
+=======
+        if (a){
+            return null;
+        }*/
+>>>>>>> b346f663ddd8f4e949536fad19317c3ab4438277
     }
 
     public void ordena() {
@@ -82,7 +95,11 @@ public class EntradesBlog {
             if (this.Entrades.get(i).getQuan().comparaTemps(inici) >= 0) {
                 if (this.Entrades.get(i).getQuan().comparaTemps(fi) > 0) {
                 } else {
+<<<<<<< HEAD
                     tornar = tornar + this.Entrades.get(i).toString() + "\n";
+=======
+                    tornar = tornar + this.Entrades.get(i).getTitol() + "\n";
+>>>>>>> b346f663ddd8f4e949536fad19317c3ab4438277
                 }
             }
         }
@@ -94,7 +111,11 @@ public class EntradesBlog {
         this.ordena();
         java.lang.String tornar = "";
         for (int i = 0; i < this.Entrades.size(); i++) {
+<<<<<<< HEAD
             tornar = tornar + this.Entrades.get(i).toString() + "\n";
+=======
+            tornar = tornar + this.Entrades.get(i).getTitol() + "\n";
+>>>>>>> b346f663ddd8f4e949536fad19317c3ab4438277
         }
         return tornar;
     }
