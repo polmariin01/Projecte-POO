@@ -41,15 +41,14 @@ public class EntradesBlog {
 
     public Entrada elimina(int num) {
         boolean a = true;
+        int i = 0;
         for (Entrada Entrade : Entrades) {
-            if(num == Entrade.id){
-                return this.Entrades.remove();
-                a = false;
+            if(num == Entrade.getId()){
+                return this.Entrades.remove(i);
             }
+            i++;
         }
-        if (a){
-            return null;
-        }
+        return null;
     }
 
     public void ordena() {
@@ -80,10 +79,10 @@ public class EntradesBlog {
         java.lang.String tornar = "";
         this.ordena();
         for (int i = 0; i < this.Entrades.size(); i++) {
-            if (this.Entrades.get(i).temps.comparaTemps(inici) >= 0) {
-                if (this.Entrades.get(i).temps.comparaTemps(fi) > 0) {
+            if (this.Entrades.get(i).getQuan().comparaTemps(inici) >= 0) {
+                if (this.Entrades.get(i).getQuan().comparaTemps(fi) > 0) {
                 } else {
-                    tornar = tornar + this.Entrades.get(i).text + "\n";
+                    tornar = tornar + this.Entrades.get(i).toString() + "\n";
                 }
             }
         }
@@ -95,7 +94,7 @@ public class EntradesBlog {
         this.ordena();
         java.lang.String tornar = "";
         for (int i = 0; i < this.Entrades.size(); i++) {
-            tornar = tornar + this.Entrades.get(i).text + "\n";
+            tornar = tornar + this.Entrades.get(i).toString() + "\n";
         }
         return tornar;
     }

@@ -11,7 +11,6 @@ package projectepoo;
  */
 public class Controlador {
 
-    public IO io;
     public EntradesBlog entradesBlog;
 
     public Controlador() {
@@ -50,8 +49,13 @@ public class Controlador {
             IO.mostrarText("Llista buida.\n");
         } else if (num < 0) {
             IO.mostrarText("Entrada no vàlida.\n");
+        }
+        
+        Entrada e = this.entradesBlog.elimina(num);
+
+        if (e==null) {
+            IO.mostrarText("No hi ha cap element amb aquesta id.\n");
         } else {
-            Entrada e = this.entradesBlog.elimina(num);
             IO.mostrarText("Elimino " + e.toString());
         }
     }
@@ -95,8 +99,8 @@ public class Controlador {
 
             Temps temps = new Temps();
             temps.ara();
-            dia = temps.dia;
-            hora = temps.hora;
+            dia = temps.toString().split(" ")[0];
+            hora = temps.toString().split(" ")[1];
 
             if (d.isBlank()) {
                 a = 1;

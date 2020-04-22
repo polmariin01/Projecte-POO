@@ -21,12 +21,10 @@ public class Entrada {
         this.titol = titol;
         this.text = text;
         this.temps = new Temps();
-        if (temps.equals("")) {
+        if (temps.isBlank()) {
             this.temps.ara();
         } else {
-            String[] datahora = temps.split(" ");
-            this.temps.dia = datahora[0];
-            this.temps.hora = datahora[1];
+            this.temps = new Temps(temps);
         }
 
         this.id = nEntrades;
