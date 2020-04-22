@@ -21,7 +21,7 @@ public class Controlador {
     public void dates() {
         java.lang.String data;
         java.lang.String[] actual = {"inicial", "final", " 00:00:00", " 23:59:59"}, dia;
-        Temps[] t;
+        Temps[] t = {null, null};
         boolean be = false;
         for (int i = 0; i < 2; i++) {
             do {
