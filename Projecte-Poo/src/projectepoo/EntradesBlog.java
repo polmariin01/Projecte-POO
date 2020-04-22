@@ -13,7 +13,7 @@ import java.util.LinkedList;
  */
 public class EntradesBlog {
 
-    public java.lang.String criteri;
+    private java.lang.String criteri;
     public LinkedList<Entrada> Entrades;
 
     public EntradesBlog() {
