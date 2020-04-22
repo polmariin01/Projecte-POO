@@ -11,8 +11,8 @@ package projectepoo;
  */
 public class Controlador {
 
-    IO io;
-    EntradesBlog entradesBlog;
+    public IO io;
+    public EntradesBlog entradesBlog;
 
     public Controlador() {
         this.entradesBlog = new EntradesBlog();
@@ -20,23 +20,27 @@ public class Controlador {
 
     public void dates() {
         java.lang.String data;
-        java.lang.String[] actual = {"inicial", "final", " 00:00:00", " 23:59:59"}, dia;
-        Temps[] t = {null, null};
-        boolean be = false;
+        java.lang.String[] actual = {"inicial", "final","00:00:00","23:59:59"}, dia;
+        Temps[] t = {null,null};
+        boolean be;
         for (int i = 0; i < 2; i++) {
+            be = false;
             do {
                 IO.mostrarText("Dia " + actual[i] + "? (aaaa-mm-dd) ");
                 data = IO.llegeixText();
                 dia = data.split("-");
                 if (dia.length == 3) {
                     if (Integer.valueOf(dia[1]) > 0 && Integer.valueOf(dia[2]) > 0 && Integer.valueOf(dia[1]) <= 12 && Integer.valueOf(dia[2]) <= 31) {
-                        t[i] = new Temps(data + actual[2 + i]);
+                        t[i] = new Temps (data + actual[2+i]);
                         be = true;
                     }
                 }
+                if(!be){
+                    IO.mostrarText("Entrada incorrecte.\n");
+                }
             } while (!be);
-            be = false;
         }
+        IO.mostrarText(t[0].toString() + "\n" + t[1].toString());
         IO.mostrarText(this.entradesBlog.entreDates(t[0], t[1]));
     }
 
@@ -44,7 +48,7 @@ public class Controlador {
 
         if (this.entradesBlog.Entrades.isEmpty()) {
             IO.mostrarText("Llista buida.\n");
-        } else if (num >= this.entradesBlog.Entrades.size() || num < 0) {
+        } else if (num < 0) {
             IO.mostrarText("Entrada no vàlida.\n");
         } else {
             Entrada e = this.entradesBlog.elimina(num);
@@ -97,9 +101,7 @@ public class Controlador {
             if (d.isBlank()) {
                 a = 1;
             } else {
-
                 text = d.split(" ");
-
                 switch (text.length) {
                     case 2:
                         dies = text[0].split("-");
@@ -124,7 +126,6 @@ public class Controlador {
                         break;
                 }
             }
-
             if (a == 0) {
                 IO.mostrarText("Format de la data incorrecte.\n");
             }

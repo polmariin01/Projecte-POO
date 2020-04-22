@@ -19,22 +19,8 @@ public class Mainproves {
         Entrades.afageixOrdenat(e2);
         Entrades.afageixOrdenat(e3);
         Entrades.afageixOrdenat(e1);
-        System.out.println(Entrades.index());
-
-        System.out.println(Entrades.toString());
-        //java.lang.String a = Entrades.entreDates(inici,fi);
-
-        /*System.out.println("Id: "+e1.getId());
-        System.out.println("Titol: "+e1.getTitol());
-        System.out.println("Temps: "+e1.getQuan());
-        System.out.println();
-        System.out.println("Id: "+e2.getId());
-        System.out.println("Titol: "+e2.getTitol());
-        System.out.println("Temps: "+e2.getQuan());
-        int a = Entrada.compare(e1,e2,"num");
-        int b = Entrada.compare(e1,e2,"titol");
-        int c = Entrada.compare(e1,e2,"vaina");
-        System.out.println(a+"  "+b+"  "+c);*/
+        
+        
     }
 
 }
