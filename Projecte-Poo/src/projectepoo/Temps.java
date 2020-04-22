@@ -13,8 +13,8 @@ import java.time.LocalDateTime;
  */
 public class Temps {
 
-    public String dia;
-    public String hora;
+    private String dia;
+    private String hora;
 
     public Temps() {
         this.dia = null;

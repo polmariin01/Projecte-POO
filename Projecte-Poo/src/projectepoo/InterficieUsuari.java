@@ -11,8 +11,8 @@ package projectepoo;
  */
 public class InterficieUsuari {
 
-    Controlador controlador;
-    IO io;
+    public Controlador controlador;
+    public IO io;
 
     public InterficieUsuari() {
         this.controlador = new Controlador();
