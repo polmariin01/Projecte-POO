@@ -40,7 +40,16 @@ public class EntradesBlog {
     }
 
     public Entrada elimina(int num) {
-        return this.Entrades.remove(num);
+        boolean a = true;
+        for (Entrada Entrade : Entrades) {
+            if(num == Entrade.id){
+                return this.Entrades.remove();
+                a = false;
+            }
+        }
+        if (a){
+            return null;
+        }
     }
 
     public void ordena() {
