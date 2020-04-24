@@ -19,7 +19,7 @@ public class Controlador {
 
     public void dates() {
         java.lang.String data;
-        java.lang.String[] actual = {"inicial", "final","00:00:00","23:59:59"}, dia;
+        java.lang.String[] actual = {"inicial", "final"," 00:00:00"," 23:59:59"}, dia;
         Temps[] t = {null,null};
         boolean formatcorrecte;
         boolean be;
@@ -47,7 +47,7 @@ public class Controlador {
                         formatcorrecte = false;
                     }
                     if (formatcorrecte && Integer.parseInt(dia[1]) > 0 && Integer.parseInt(dia[2]) > 0 && Integer.parseInt(dia[1]) <= 12 && Integer.parseInt(dia[2]) <= 31) {
-                             t[i] = new Temps (data+" " + actual[2+i]);
+                             t[i] = new Temps (data + actual[2+i]);
                              be = true;
                         }                
                 }
