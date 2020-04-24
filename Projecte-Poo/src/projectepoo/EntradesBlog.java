@@ -79,11 +79,10 @@ public class EntradesBlog {
         java.lang.String tornar = "";
         this.ordena();
         for (int i = 0; i < this.Entrades.size(); i++) {
-            if (this.Entrades.get(i).getQuan().comparaTemps(inici) >= 0) {
-                if (this.Entrades.get(i).getQuan().comparaTemps(fi) > 0) {
-                } else {
+            if (this.Entrades.get(i).getQuan().comparaTemps(inici) <= 0) {
+                if (this.Entrades.get(i).getQuan().comparaTemps(fi) >= 0) {
                     tornar = tornar + this.Entrades.get(i).getTitol() + "\n";
-                }
+                } 
             }
         }
         return tornar;
