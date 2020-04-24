@@ -21,7 +21,7 @@ public class Controlador {
         java.lang.String data;
         java.lang.String[] actual = {"inicial", "final","00:00:00","23:59:59"}, dia;
         Temps[] t = {null,null};
-        boolean formatcorrecte = true;
+        boolean formatcorrecte;
         boolean be;
         for (int i = 0; i < 2; i++) {
             be = false;
@@ -46,7 +46,7 @@ public class Controlador {
                     } catch (NumberFormatException nfe){
                         formatcorrecte = false;
                     }
-                    if (formatcorrecte = true && Integer.parseInt(dia[1]) > 0 && Integer.parseInt(dia[2]) > 0 && Integer.parseInt(dia[1]) <= 12 && Integer.parseInt(dia[2]) <= 31) {
+                    if (formatcorrecte && Integer.parseInt(dia[1]) > 0 && Integer.parseInt(dia[2]) > 0 && Integer.parseInt(dia[1]) <= 12 && Integer.parseInt(dia[2]) <= 31) {
                              t[i] = new Temps (data+" " + actual[2+i]);
                              be = true;
                         }                
