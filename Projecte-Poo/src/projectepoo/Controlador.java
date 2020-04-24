@@ -30,7 +30,7 @@ public class Controlador {
                 dia = data.split("-");
                 if (dia.length == 3) {
                     if (Integer.valueOf(dia[1]) > 0 && Integer.valueOf(dia[2]) > 0 && Integer.valueOf(dia[1]) <= 12 && Integer.valueOf(dia[2]) <= 31) {
-                        t[i] = new Temps (data + actual[2+i]);
+                        t[i] = new Temps (data+" " + actual[2+i]);
                         be = true;
                     }
                 }
