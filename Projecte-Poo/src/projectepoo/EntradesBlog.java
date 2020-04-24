@@ -89,7 +89,7 @@ public class EntradesBlog {
                 if (this.Entrades.get(i).getQuan().comparaTemps(fi) > 0) {
                 } else {
                     tornar = tornar + this.Entrades.get(i).getTitol() + "\n";
-                }
+                } 
             }
             */
         }

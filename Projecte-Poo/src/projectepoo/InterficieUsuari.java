@@ -7,7 +7,7 @@ package projectepoo;
 
 /**
  *
- * @author Usuari Fa: Pol
+ * @authors Gil Boleda Feliu i Pol Marín Gargallo
  */
 public class InterficieUsuari {
 

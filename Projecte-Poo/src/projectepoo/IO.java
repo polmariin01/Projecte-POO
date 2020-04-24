@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Usuari Fa: Gil
+ * @authors Gil Boleda Feliu i Pol Marín Gargallo
  */
 public class IO {
 

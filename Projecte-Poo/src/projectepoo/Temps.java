@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 /**
  *
- * @author gilbo
+ * @authors Gil Boleda Feliu i Pol Marín Gargallo
  */
 public class Temps {
 
