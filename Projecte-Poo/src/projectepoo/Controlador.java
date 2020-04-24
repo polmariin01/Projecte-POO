@@ -38,10 +38,18 @@ public class Controlador {
 */                
                 dia = data.split("-");                
                 if (dia.length == 3) {
-                    if (Integer.parseInt(dia[1]) > 0 && Integer.parseInt(dia[2]) > 0 && Integer.parseInt(dia[1]) <= 12 && Integer.parseInt(dia[2]) <= 31) {
-                        t[i] = new Temps (data+" " + actual[2+i]);
-                        be = true;
+                    try{
+                        Integer.parseInt(dia[0]);
+                        Integer.parseInt(dia[1]);
+                        Integer.parseInt(dia[2]);
+                        formatcorrecte = true;
+                    } catch (NumberFormatException nfe){
+                        formatcorrecte = false;
                     }
+                    if (formatcorrecte = true && Integer.parseInt(dia[1]) > 0 && Integer.parseInt(dia[2]) > 0 && Integer.parseInt(dia[1]) <= 12 && Integer.parseInt(dia[2]) <= 31) {
+                             t[i] = new Temps (data+" " + actual[2+i]);
+                             be = true;
+                        }                
                 }
                 if(!be){
                     IO.mostrarText("Entrada incorrecte.\n");
