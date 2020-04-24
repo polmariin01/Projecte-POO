@@ -21,21 +21,13 @@ public class Controlador {
         java.lang.String data;
         java.lang.String[] actual = {"inicial", "final"," 00:00:00"," 23:59:59"}, dia;
         Temps[] t = {null,null};
-        boolean formatcorrecte;
-        boolean be;
+        boolean formatcorrecte, be;
         for (int i = 0; i < 2; i++) {
             be = false;
             do {
                 IO.mostrarText("Dia " + actual[i] + "? (aaaa-mm-dd) ");
                 data = IO.llegeixText();
 
-/*                
-                for (int j = 0; j< data.length(); i++){
-                    if(data[i].isDigit()){
-                        formatcorrecte = false;
-                    }
-                }
-*/                
                 dia = data.split("-");                
                 if (dia.length == 3) {
                     try{
@@ -46,8 +38,9 @@ public class Controlador {
                     } catch (NumberFormatException nfe){
                         formatcorrecte = false;
                     }
-                    if (formatcorrecte && Integer.parseInt(dia[1]) > 0 && Integer.parseInt(dia[2]) > 0 && Integer.parseInt(dia[1]) <= 12 && Integer.parseInt(dia[2]) <= 31) {
-                             t[i] = new Temps (data + actual[2+i]);
+                    if (formatcorrecte && Integer.parseInt(dia[1]) > 0 && Integer.parseInt(dia[2]) > 0 && Integer.parseInt(dia[1]) <= 12 && Integer.parseInt(dia[2]) <= 31) {    
+                            data = (String.format("%04d",Integer.valueOf(dia[0])) + "-" +  String.format("%02d",Integer.valueOf(dia[1])) + "-" + String.format("%02d",Integer.valueOf(dia[2])));
+                            t[i] = new Temps (data + actual[2+i]);
                              be = true;
                         }                
                 }
@@ -56,7 +49,7 @@ public class Controlador {
                 }
             } while (!be);
         }
-        IO.mostrarText(t[0].toString() + "\n" + t[1].toString());
+        IO.mostrarText(t[0].toString() + "\n" + t[1].toString() + "\n");
         IO.mostrarText(this.entradesBlog.entreDates(t[0], t[1]));
     }
 
