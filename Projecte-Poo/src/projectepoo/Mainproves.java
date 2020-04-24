@@ -9,6 +9,7 @@ package projectepoo;
  *
  * @author gilbo
  */
+
 public class Mainproves {
 
     public static void main(String[] args) {
@@ -21,7 +22,7 @@ public class Mainproves {
         prova.Entrades.add(e2);
         prova.Entrades.add(e3);
         
-        Temps t1 = new Temps("2021-05-02 00:00:00"), t2 = new Temps("2024-03-20 00:00:00");
+        Temps t1 = new Temps("2021-05-02 00:00:00"), t2 = new Temps("2024-02-12 00:00:00");
         IO.mostrarText(prova.entreDates(t1,t2));
         
         EntradesBlog Entrades = new EntradesBlog();

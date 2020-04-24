@@ -11,6 +11,7 @@ import java.util.Scanner;
  *
  * @authors Gil Boleda Feliu i Pol Marín Gargallo
  */
+
 public class IO {
 
     public static java.util.Scanner teclat = new Scanner(System.in);

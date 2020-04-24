@@ -9,8 +9,9 @@ import java.util.LinkedList;
 
 /**
  *
- * @author Usuari Fa: Gil
+ * @authors Gil Boleda Feliu i Pol Marín Gargallo
  */
+
 public class EntradesBlog {
 
     private java.lang.String criteri;
@@ -79,8 +80,8 @@ public class EntradesBlog {
         java.lang.String tornar = "";
         this.ordena();
         for (int i = 0; i < this.Entrades.size(); i++) {
-            if (this.Entrades.get(i).getQuan().comparaTemps(inici) <= 0) {
-                if (this.Entrades.get(i).getQuan().comparaTemps(fi) >= 0) {
+            if (this.Entrades.get(i).getQuan().comparaDia(inici) <= 0) {
+                if (this.Entrades.get(i).getQuan().comparaDia(fi) >= 0) {
                     tornar = tornar + this.Entrades.get(i).getId() + " "+ this.Entrades.get(i).getTitol() + "\n";
                 } 
             }

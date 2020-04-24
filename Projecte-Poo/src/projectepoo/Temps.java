@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
  *
  * @authors Gil Boleda Feliu i Pol Marín Gargallo
  */
+
 public class Temps {
 
     private String dia;

@@ -7,8 +7,9 @@ package projectepoo;
 
 /**
  *
- * @author gilbo
+ * @authors Gil Boleda Feliu i Pol Marín Gargallo
  */
+
 public class Entrada {
 
     private final java.lang.String titol;

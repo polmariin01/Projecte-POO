@@ -9,6 +9,7 @@ package projectepoo;
  *
  * @authors Gil Boleda Feliu i Pol Marín Gargallo
  */
+
 public class Controlador {
 
     public EntradesBlog entradesBlog;
@@ -19,7 +20,7 @@ public class Controlador {
 
     public void dates() {
         java.lang.String data;
-        java.lang.String[] actual = {"inicial", "final"," 00:00:00"," 23:59:59"}, dia;
+        java.lang.String[] actual = {"inicial", "final"}, dia;
         Temps[] t = {null,null};
         boolean formatcorrecte, be;
         for (int i = 0; i < 2; i++) {
@@ -40,7 +41,7 @@ public class Controlador {
                     }
                     if (formatcorrecte && Integer.parseInt(dia[1]) > 0 && Integer.parseInt(dia[2]) > 0 && Integer.parseInt(dia[1]) <= 12 && Integer.parseInt(dia[2]) <= 31) {    
                             data = (String.format("%04d",Integer.valueOf(dia[0])) + "-" +  String.format("%02d",Integer.valueOf(dia[1])) + "-" + String.format("%02d",Integer.valueOf(dia[2])));
-                            t[i] = new Temps (data + actual[2+i]);
+                            t[i] = new Temps (data + " 00:00:00");
                              be = true;
                         }                
                 }
@@ -111,6 +112,7 @@ public class Controlador {
             temps.ara();
             dia = temps.toString().split(" ")[0];
             hora = temps.toString().split(" ")[1];
+            boolean format;
 
             if (d.isBlank()) {
                 a = 1;
@@ -120,8 +122,16 @@ public class Controlador {
                     case 2:
                         dies = text[0].split("-");
                         if (dies.length == 3) {
-                            if (Integer.valueOf(dies[0]) > 0 && Integer.valueOf(dies[1]) > 0 && Integer.valueOf(dies[2]) > 0 && Integer.valueOf(dies[1]) <= 12 && Integer.valueOf(dies[2]) <= 31) {
-                                dia = dies[0] + "-" + dies[1] + "-" + dies[2];
+                            try{
+                                Integer.parseInt(dies[0]);
+                                Integer.parseInt(dies[1]);
+                                Integer.parseInt(dies[2]);
+                                format = true;
+                            } catch (NumberFormatException nfe){
+                                format = false;
+                            }
+                            if (format && Integer.valueOf(dies[0]) > 0 && Integer.valueOf(dies[1]) > 0 && Integer.valueOf(dies[2]) > 0 && Integer.valueOf(dies[1]) <= 12 && Integer.valueOf(dies[2]) <= 31) {
+                                dia = (String.format("%04d",Integer.valueOf(dies[0])) + "-" +  String.format("%02d",Integer.valueOf(dies[1])) + "-" + String.format("%02d",Integer.valueOf(dies[2])));
                             } else {
                                 break;
                             }
@@ -132,8 +142,16 @@ public class Controlador {
                     case 1:
                         hores = text[0].split(":");
                         if (hores.length == 3) {
-                            if (Integer.valueOf(hores[0]) >= 0 && Integer.valueOf(hores[1]) >= 0 && Integer.valueOf(hores[2]) >= 0 && Integer.valueOf(hores[0]) < 24 && Integer.valueOf(hores[1]) < 60 && Integer.valueOf(hores[2]) < 60) {
-                                hora = hores[0] + "-" + hores[1] + "-" + hores[2];
+                            try{
+                                Integer.parseInt(hores[0]);
+                                Integer.parseInt(hores[1]);
+                                Integer.parseInt(hores[2]);
+                                format = true;
+                            } catch (NumberFormatException nfe){
+                                format = false;
+                            }
+                            if (format && Integer.valueOf(hores[0]) >= 0 && Integer.valueOf(hores[1]) >= 0 && Integer.valueOf(hores[2]) >= 0 && Integer.valueOf(hores[0]) < 24 && Integer.valueOf(hores[1]) < 60 && Integer.valueOf(hores[2]) < 60) {
+                                hora = (String.format("%02d",Integer.valueOf(hores[0])) + ":" +  String.format("%02d",Integer.valueOf(hores[1])) + ":" + String.format("%02d",Integer.valueOf(hores[2])));
                                 a = 1;
                             }
                         }
@@ -155,7 +173,7 @@ public class Controlador {
             IO.mostrarText("Criteri? (num/titol) ");
             criteri = IO.llegeixText();
             if (!criteri.equalsIgnoreCase("num") && !criteri.equalsIgnoreCase("titol")) {
-                IO.mostrarText("Criteri incorrecte.");
+                IO.mostrarText("Criteri incorrecte. ");
             }
         } while (!criteri.equalsIgnoreCase("num") && !criteri.equalsIgnoreCase("titol"));
 
