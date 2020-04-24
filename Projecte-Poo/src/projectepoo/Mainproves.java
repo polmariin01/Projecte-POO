@@ -19,9 +19,6 @@ public class Mainproves {
         Entrades.afageixOrdenat(e2);
         Entrades.afageixOrdenat(e3);
         Entrades.afageixOrdenat(e1);
-        Temps inici = new Temps("2020-01-01 00:00:00");
-        Temps fi = new Temps("2024-02-12 12:02:12");
-        System.out.println(Entrades.entreDates(inici, fi));
         
         
     }

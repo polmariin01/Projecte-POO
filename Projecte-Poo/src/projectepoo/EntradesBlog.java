@@ -81,7 +81,7 @@ public class EntradesBlog {
         for (int i = 0; i < this.Entrades.size(); i++) {
             if (this.Entrades.get(i).getQuan().comparaTemps(inici) <= 0) {
                 if (this.Entrades.get(i).getQuan().comparaTemps(fi) >= 0) {
-                    tornar = tornar + this.Entrades.get(i).getTitol() + "\n";
+                    tornar = tornar + this.Entrades.get(i).getId() + " "+ this.Entrades.get(i).getTitol() + "\n";
                 } 
             }
         }
