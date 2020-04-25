@@ -16,6 +16,12 @@ public class Controlador {
 
     public Controlador() {
         this.entradesBlog = new EntradesBlog();
+        Entrada e1 = new Entrada("t1","tx1","2020-05-15 08:42:00");
+        this.entradesBlog.afageixOrdenat(e1);
+        Entrada e2 = new Entrada("t2","tx2","2019-05-15 08:42:00");
+        this.entradesBlog.afageixOrdenat(e2);
+        Entrada e3 = new Entrada("t3","tx3","2018-05-15 08:42:00");
+        this.entradesBlog.afageixOrdenat(e3);
     }
 
     public void dates() {
