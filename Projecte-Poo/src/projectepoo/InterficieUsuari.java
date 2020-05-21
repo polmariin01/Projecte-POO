@@ -65,7 +65,6 @@ public class InterficieUsuari {
             
         } else {
             IO.mostrarText("El text introduit no coincideix amb cap opcio.\n");
-            
         }
         
         /**

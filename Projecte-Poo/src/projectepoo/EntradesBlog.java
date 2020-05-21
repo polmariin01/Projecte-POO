@@ -31,10 +31,14 @@ public class EntradesBlog {
     }
 
     public void afageixOrdenat(Entrada e) {
+        Entrades.add(e);
+        this.ordena();
+
+/**
         int pos = 0;
         boolean afegit = false;
         if (Entrades.isEmpty()){
-            Entrades.add(0,e);
+            Entrades.add(e);
         } else {
             for (Entrada ent : this.Entrades) {
                 if (Entrada.compare(ent, e, this.criteri) > 0 && (!afegit)) {
@@ -49,6 +53,7 @@ public class EntradesBlog {
                 Entrades.add(pos, e);
             }
         }
+        */
     }
 
     public Entrada agafa(int num) {
@@ -64,7 +69,6 @@ public class EntradesBlog {
             i++;
         }
         return null;
-
     }
 
     public void ordena() {
