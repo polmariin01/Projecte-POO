@@ -12,6 +12,6 @@ package projectepoo;
 public class Visitant extends Usuari{
     public Visitant(Controlador contr){
         super(contr);
-        
+        this.menu = new MenuVisitant();
     }
 }

@@ -9,13 +9,13 @@ package projectepoo;
  *
  * @author Usuari
  */
-public class BlogException extends java.lang.Exception{
+public class BlogException extends java.lang.Exception {
     
     public BlogException(){
-        
+        super();
     }
     
     public BlogException(java.lang.String message){
-        
+        super(message);
     }
 }

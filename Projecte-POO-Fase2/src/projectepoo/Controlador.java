@@ -5,6 +5,9 @@
  */
 package projectepoo;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  *
  * @authors Gil Boleda Feliu i Pol Marín Gargallo
@@ -13,15 +16,19 @@ package projectepoo;
 public class Controlador {
 
     public EntradesBlog entradesBlog;
+    public Map<String,Registrat> registrats;
+    public Usuari usuariActual;
 
     public Controlador() {
         this.entradesBlog = new EntradesBlog();
+        registrats = new HashMap<>();
         Entrada e1 = new Entrada("t1","tx1","2020-05-15 08:42:00");
         Entrada e2 = new Entrada("t2","tx2","2019-05-15 08:42:00");
         Entrada e3 = new Entrada("t3","tx3","2018-05-15 08:42:00");
         this.entradesBlog.afageixOrdenat(e1);
         this.entradesBlog.afageixOrdenat(e2);
         this.entradesBlog.afageixOrdenat(e3);
+        
     }
 
     public void dates() {
@@ -201,5 +208,50 @@ public class Controlador {
 
         this.entradesBlog.setCriteri(criteri.toLowerCase());
         this.entradesBlog.ordena();
+    }
+    
+    public void visitant(){
+        
+    }
+    
+    public void sessio(){
+        BlogException be = new BlogException("Usuari o password incorrecte!\n");
+        java.lang.String us, pass;
+        IO.mostrarText("Usuari? ");
+        us = IO.llegeixText();
+        IO.mostrarText("Password? ");
+        pass = IO.llegeixText();
+        
+        Registrat user = this.registrats.get(us);
+        
+        if (user == null || user.verificaPassword(pass)){
+            throw be;
+        }
+        
+    }
+    
+    public void registre(){
+        java.lang.String nom, pass, pass2;
+        IO.mostrarText("Alta usuari:\nNom Usuari? ");
+        nom = IO.llegeixText();
+        do {
+            IO.mostrarText("Password? ");
+            pass = IO.llegeixText();
+            IO.mostrarText("Repeteix el password: ");
+            pass2 =IO.llegeixText();
+            if (!pass.equals(pass2)){
+                IO.mostrarText("Els passwords no coincideixen.\n");
+            }
+        } while (!pass.equals(pass2));
+        
+        this.registrats.put(nom, new Registrat(this,nom,pass));
+    }
+    
+    public void mostraUsuaris(){
+        
+    }
+    
+    public void mostraBlog(java.lang.String nom){
+        
     }
 }
