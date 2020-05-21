@@ -33,6 +33,7 @@ public class EntradesBlog {
     public void afageixOrdenat(Entrada e) {
         Entrades.add(e);
         this.ordena();
+        //iwjncijwnwijcni//
     }
 
     public Entrada agafa(int num) {
