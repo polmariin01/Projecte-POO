@@ -15,7 +15,7 @@ public class MenuRegistrat extends Menu {
         super(contr);
     }
     @Override
-    public void executaOpcio(String op) {
+    public void executaOpcio(String op) throws BlogException{
         java.lang.String com[] = op.split(" ");
         com[0] = com[0].toUpperCase();
 
@@ -50,8 +50,7 @@ public class MenuRegistrat extends Menu {
             controlador.mostraEntrades();
             
         } else if("FI".startsWith(com[0])){
-            IO.mostrarText("Adiós!");
-            /*System.exit(0);*/
+            throw new BlogException();
             
         } else {
             IO.mostrarText("El text introduit no coincideix amb cap opcio.\n");

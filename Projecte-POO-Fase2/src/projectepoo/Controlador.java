@@ -224,10 +224,12 @@ public class Controlador {
         
         Registrat user = this.registrats.get(us);
         
-        if (user == null || user.verificaPassword(pass)){
+        if (user == null || !user.verificaPassword(pass)){
             throw new BlogException("Usuari o password incorrecte!\n");
         }
         this.usuariActual = user;
+        user.getMenu().cicle();
+
     }
     
     public void registre() throws BlogException{
@@ -240,7 +242,7 @@ public class Controlador {
         IO.mostrarText("Repeteix el password: ");
         pass2 =IO.llegeixText();
         if (!pass.equals(pass2)){
-            throw new BlogException("Password incorrecte!\\n");
+            throw new BlogException("Password incorrecte!\n");
         }
         this.registrats.put(nom, new Registrat(this,nom,pass));
     }

@@ -16,24 +16,24 @@ public class MenuPrincipal extends Menu{
     }
     @Override
     public void executaOpcio(String op) {
-        java.lang.String com = op.toUpperCase();
+        op = op.toUpperCase();
         
 
-        if("VISITANT".startsWith(com)){
+        if("VISITANT".startsWith(op)){
             controlador.index();
-        } else if("INICIA SESSIO".startsWith(com)){
+        } else if("INICIA SESSIO".startsWith(op)){
             try{
                 controlador.sessio();
             }catch(BlogException exception){
-                exception.notify();
+                IO.mostrarText(exception.getMessage());
             }
-        } else if("REGISTRA'T".startsWith(com)){
+        } else if("REGISTRA'T".startsWith(op)){
             try{
                 controlador.registre();
             }catch(BlogException exception){
-                exception.notify();
+                IO.mostrarText(exception.getMessage());
             }
-        } else if("FI".startsWith(com)){
+        } else if("FI".startsWith(op)){
             IO.mostrarText("Adiós!");
             System.exit(0);
         } 
@@ -41,7 +41,7 @@ public class MenuPrincipal extends Menu{
 
     @Override
     public void mostraOpcions() {
-        System.out.println("Opcions:\n\tvisitant\n\tinicia sessio\n\tregistra't\n\tfi\nIntrodueix una opció: ");
+        System.out.println("\nOpcions:\n\tvisitant\n\tinicia sessio\n\tregistra't\n\tfi\n");
     }
     
 }

@@ -18,6 +18,7 @@ public class Registrat extends Usuari{
         super(contr);
         this.nomUsuari = nom;
         this.password = passwd;
+        this.menu = new MenuRegistrat(this.contr);
     }
     
     public void afageixEntrada(Entrada e){
