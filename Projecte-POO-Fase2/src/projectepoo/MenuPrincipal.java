@@ -22,9 +22,17 @@ public class MenuPrincipal extends Menu{
         if("VISITANT".startsWith(com)){
             controlador.index();
         } else if("INICIA SESSIO".startsWith(com)){
-            controlador.sessio();
+            try{
+                controlador.sessio();
+            }catch(BlogException exception){
+                exception.notify();
+            }
         } else if("REGISTRA'T".startsWith(com)){
-            controlador.registre();
+            try{
+                controlador.registre();
+            }catch(BlogException exception){
+                exception.notify();
+            }
         } else if("FI".startsWith(com)){
             IO.mostrarText("Adiós!");
             System.exit(0);

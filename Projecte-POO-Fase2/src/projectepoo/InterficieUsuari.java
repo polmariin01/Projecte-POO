@@ -17,7 +17,7 @@ public class InterficieUsuari {
 
     public InterficieUsuari() {
         this.controlador = new Controlador();
-        this.menu = new MenuRegistrat();
+        this.menu = new MenuRegistrat(this.controlador);
     }
 
     public void cicle() throws BlogException {
