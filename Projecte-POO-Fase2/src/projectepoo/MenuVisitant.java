@@ -9,6 +9,6 @@ package projectepoo;
  *
  * @author Usuari
  */
-public class MenuVisitant {
+public class MenuVisitant extends Menu{
     
 }
