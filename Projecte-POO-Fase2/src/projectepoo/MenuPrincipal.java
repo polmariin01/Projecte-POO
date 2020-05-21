@@ -9,6 +9,19 @@ package projectepoo;
  *
  * @author Usuari
  */
-public class MenuPrincipal {
+public class MenuPrincipal extends Menu{
+
+    public MenuPrincipal(Controlador contr) {
+        super(contr);
+    }
+    @Override
+    public void executaOpcio(String op) {
+        
+    }
+
+    @Override
+    public void mostraOpcions() {
+        System.out.println("Opcions:\n\tvisitant\n\tinicia sessio\n\tregistra't\n\tfi\nIntrodueix una opció: ");
+    }
     
 }
