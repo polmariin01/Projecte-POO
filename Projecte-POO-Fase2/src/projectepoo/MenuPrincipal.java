@@ -21,12 +21,21 @@ public class MenuPrincipal extends Menu{
 
         if("VISITANT".startsWith(com)){
             controlador.index();
-        } else if("SESSIO".startsWith(com)){
-            controlador.sessio();
-        } else if("REGISTRE".startsWith(com)){
-            controlador.registre();
+        } else if("INICIA SESSIO".startsWith(com)){
+            try{
+                controlador.sessio();
+            }catch(BlogException exception){
+                exception.notify();
+            }
+        } else if("REGISTRA'T".startsWith(com)){
+            try{
+                controlador.registre();
+            }catch(BlogException exception){
+                exception.notify();
+            }
         } else if("FI".startsWith(com)){
-            
+            IO.mostrarText("Adiós!");
+            System.exit(0);
         } 
     }
 
