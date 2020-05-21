@@ -6,6 +6,7 @@
 package projectepoo;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -211,11 +212,10 @@ public class Controlador {
     }
     
     public void visitant(){
-        
+        this.usuariActual = new Visitant(this);
     }
     
-    public void sessio(){
-        BlogException be = new BlogException("Usuari o password incorrecte!\n");
+    public void sessio() throws BlogException{
         java.lang.String us, pass;
         IO.mostrarText("Usuari? ");
         us = IO.llegeixText();
@@ -225,33 +225,35 @@ public class Controlador {
         Registrat user = this.registrats.get(us);
         
         if (user == null || user.verificaPassword(pass)){
-            throw be;
+            throw new BlogException("Usuari o password incorrecte!\n");
         }
-        
+        this.usuariActual = user;
     }
     
-    public void registre(){
+    public void registre() throws BlogException{
         java.lang.String nom, pass, pass2;
         IO.mostrarText("Alta usuari:\nNom Usuari? ");
         nom = IO.llegeixText();
-        do {
-            IO.mostrarText("Password? ");
-            pass = IO.llegeixText();
-            IO.mostrarText("Repeteix el password: ");
-            pass2 =IO.llegeixText();
-            if (!pass.equals(pass2)){
-                IO.mostrarText("Els passwords no coincideixen.\n");
-            }
-        } while (!pass.equals(pass2));
-        
+
+        IO.mostrarText("Password? ");
+        pass = IO.llegeixText();
+        IO.mostrarText("Repeteix el password: ");
+        pass2 =IO.llegeixText();
+        if (!pass.equals(pass2)){
+            throw new BlogException("Password incorrecte!\\n");
+        }
         this.registrats.put(nom, new Registrat(this,nom,pass));
     }
     
     public void mostraUsuaris(){
-        
+        IO.mostrarText("[");
+        this.registrats.forEach((nom,usuari) -> IO.mostrarText(nom + " ,"));
+        IO.mostrarText("]");
+            
+        }
     }
     
-    public void mostraBlog(java.lang.String nom){
+    public void mostraBlog(java.lang.String nom) throws BlogException{
         
     }
 }
