@@ -10,8 +10,9 @@ package projectepoo;
  * @author Usuari
  */
 public class Visitant extends Usuari{
-    public Visitant(Controlador contr){
+    
+    public Visitant(Controlador contr) {
         super(contr);
-        //this.menu = new MenuVisitant();
+        this.menu = new MenuVisitant();
     }
 }
