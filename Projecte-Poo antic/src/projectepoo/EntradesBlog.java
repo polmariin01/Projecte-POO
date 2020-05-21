@@ -11,7 +11,6 @@ import java.util.LinkedList;
  *
  * @authors Gil Boleda Feliu i Pol Marín Gargallo
  */
-
 public class EntradesBlog {
 
     private java.lang.String criteri;
@@ -32,20 +31,29 @@ public class EntradesBlog {
     }
 
     public void afageixOrdenat(Entrada e) {
+        Entrades.add(e);
+        this.ordena();
+
+/**
         int pos = 0;
         boolean afegit = false;
-        for(Entrada ent : Entrades){
-            if(Entrada.compare(ent, e, this.criteri)>0&&(!afegit)){
+        if (Entrades.isEmpty()){
+            Entrades.add(e);
+        } else {
+            for (Entrada ent : this.Entrades) {
+                if (Entrada.compare(ent, e, this.criteri) > 0 && (!afegit)) {
                     pos++;
-            }
-            if(Entrada.compare(ent, e, this.criteri)<=0){
+                }
+                if (Entrada.compare(ent, e, this.criteri) <= 0) {
                     Entrades.add(pos, e);
-                    afegit= true;
+                    afegit = true;
+                }
+            }
+            if (!afegit) {
+                Entrades.add(pos, e);
             }
         }
-        if(!afegit){
-            Entrades.add(pos, e);
-        }
+        */
     }
 
     public Entrada agafa(int num) {
@@ -55,13 +63,12 @@ public class EntradesBlog {
     public Entrada elimina(int num) {
         int i = 0;
         for (Entrada Entrade : Entrades) {
-            if(num == Entrade.getId()){
+            if (num == Entrade.getId()) {
                 return this.Entrades.remove(i);
             }
             i++;
         }
         return null;
-
     }
 
     public void ordena() {
@@ -94,8 +101,8 @@ public class EntradesBlog {
         for (int i = 0; i < this.Entrades.size(); i++) {
             if (this.Entrades.get(i).getQuan().comparaDia(inici) <= 0) {
                 if (this.Entrades.get(i).getQuan().comparaDia(fi) >= 0) {
-                    tornar = tornar + this.Entrades.get(i).getId() + " "+ this.Entrades.get(i).getTitol() + "\n";
-                } 
+                    tornar = tornar + this.Entrades.get(i).getId() + " " + this.Entrades.get(i).getTitol() + "\n";
+                }
             }
         }
         return tornar;

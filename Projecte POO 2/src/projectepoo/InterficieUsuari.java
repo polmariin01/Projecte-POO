@@ -29,6 +29,45 @@ public class InterficieUsuari {
         java.lang.String com[] = op.split(" ");
         com[0] = com[0].toUpperCase();
 
+        if("INDEX".startsWith(com[0])){
+            controlador.index();
+        } else if("MOSTRAR".startsWith(com[0])){
+            if (com.length == 2 && Integer.valueOf(com[1]) >= 0) {
+                IO.mostrarText("\n");
+                controlador.mostraEntrada(Integer.valueOf(com[1]));
+                IO.mostrarText("\n");
+            } else {
+                IO.mostrarText("Entrada incorrecte.\n");
+            }
+            
+        } else if("NOVA".startsWith(com[0])){
+            controlador.novaEntrada();
+
+        } else if("ELIMINA".startsWith(com[0])){
+            if (com.length == 2 && Integer.valueOf(com[1]) >= 0) {
+                controlador.eliminaEntrada(Integer.valueOf(com[1]));
+            } else {
+                IO.mostrarText("Entrada incorrecte.\n");
+            }
+            
+        } else if("ORDENA".startsWith(com[0])){
+            controlador.ordena();
+            
+        } else if("DATES".startsWith(com[0])){
+            controlador.dates();
+            
+        } else if("TOTES".startsWith(com[0])){
+            controlador.mostraEntrades();
+            
+        } else if("FI".startsWith(com[0])){
+            IO.mostrarText("Adiós!");
+            System.exit(0);
+            
+        } else {
+            IO.mostrarText("El text introduit no coincideix amb cap opcio.\n");
+        }
+        
+        /**
         switch (com[0]) {
             case "INDEX":
             case "INDE":
@@ -101,6 +140,7 @@ public class InterficieUsuari {
             default:
                 IO.mostrarText("El text introduit no coincideix amb cap opcio.\n");
         }
+        **/
 
     }
 

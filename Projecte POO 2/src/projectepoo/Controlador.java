@@ -17,10 +17,10 @@ public class Controlador {
     public Controlador() {
         this.entradesBlog = new EntradesBlog();
         Entrada e1 = new Entrada("t1","tx1","2020-05-15 08:42:00");
-        this.entradesBlog.afageixOrdenat(e1);
         Entrada e2 = new Entrada("t2","tx2","2019-05-15 08:42:00");
-        this.entradesBlog.afageixOrdenat(e2);
         Entrada e3 = new Entrada("t3","tx3","2018-05-15 08:42:00");
+        this.entradesBlog.afageixOrdenat(e1);
+        this.entradesBlog.afageixOrdenat(e2);
         this.entradesBlog.afageixOrdenat(e3);
     }
 
@@ -107,7 +107,7 @@ public class Controlador {
         IO.mostrarText("Text? ");
         String ttx = IO.llegeixText();
         String d, dia, hora;
-        String[] text, dies, hores;
+        String[] text, dies, time;
         int a = 0;
 
         do {
@@ -146,22 +146,38 @@ public class Controlador {
                         }
                         text[0] = text[1];
                     case 1:
-                        hores = text[0].split(":");
-                        if (hores.length == 3) {
+                        time = text[0].split(":");
+                        if (time.length == 3) {
                             try{
-                                Integer.parseInt(hores[0]);
-                                Integer.parseInt(hores[1]);
-                                Integer.parseInt(hores[2]);
+                                Integer.parseInt(time[0]);
+                                Integer.parseInt(time[1]);
+                                Integer.parseInt(time[2]);
                                 format = true;
                             } catch (NumberFormatException nfe){
                                 format = false;
                             }
-                            if (format && Integer.valueOf(hores[0]) >= 0 && Integer.valueOf(hores[1]) >= 0 && Integer.valueOf(hores[2]) >= 0 && Integer.valueOf(hores[0]) < 24 && Integer.valueOf(hores[1]) < 60 && Integer.valueOf(hores[2]) < 60) {
-                                hora = (String.format("%02d",Integer.valueOf(hores[0])) + ":" +  String.format("%02d",Integer.valueOf(hores[1])) + ":" + String.format("%02d",Integer.valueOf(hores[2])));
+                            if (format && Integer.valueOf(time[0]) >= 0 && Integer.valueOf(time[1]) >= 0 && Integer.valueOf(time[2]) >= 0 && Integer.valueOf(time[0]) < 24 && Integer.valueOf(time[1]) < 60 && Integer.valueOf(time[2]) < 60) {
+                                hora = (String.format("%02d",Integer.valueOf(time[0])) + ":" +  String.format("%02d",Integer.valueOf(time[1])) + ":" + String.format("%02d",Integer.valueOf(time[2])));
                                 a = 1;
                             }
+                        } else if (time.length==1){
+                            time = text[0].split("-");
+                            if (time.length == 3){
+                                try{
+                                    Integer.parseInt(time[0]);
+                                    Integer.parseInt(time[1]);
+                                    Integer.parseInt(time[2]);
+                                    format = true;
+                                } catch (NumberFormatException nfe){
+                                    format = false;
+                                }
+                                if (format && Integer.valueOf(time[0]) >= 0 && Integer.valueOf(time[1]) >= 0 && Integer.valueOf(time[2]) >= 0 && Integer.valueOf(time[1]) <= 12 && Integer.valueOf(time[2]) <= 31) {
+                                    dia = (String.format("%04d",Integer.valueOf(time[0])) + ":" +  String.format("%02d",Integer.valueOf(time[1])) + ":" + String.format("%02d",Integer.valueOf(time[2])));
+                                    a = 1;
+                                }
+                            }
                         }
-                        break;
+                    break;
                 }
             }
             if (a == 0) {
