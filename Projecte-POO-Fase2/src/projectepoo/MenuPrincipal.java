@@ -16,7 +16,18 @@ public class MenuPrincipal extends Menu{
     }
     @Override
     public void executaOpcio(String op) {
+        java.lang.String com = op.toUpperCase();
         
+
+        if("VISITANT".startsWith(com)){
+            controlador.index();
+        } else if("SESSIO".startsWith(com)){
+            controlador.sessio();
+        } else if("REGISTRE".startsWith(com)){
+            controlador.registre();
+        } else if("FI".startsWith(com)){
+            
+        } 
     }
 
     @Override
