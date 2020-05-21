@@ -32,8 +32,20 @@ public class EntradesBlog {
     }
 
     public void afageixOrdenat(Entrada e) {
-        boolean a = this.Entrades.add(e);
-        this.ordena();
+        int pos = 0;
+        boolean afegit = false;
+        for(Entrada ent : Entrades){
+            if(Entrada.compare(ent, e, this.criteri)>0&&(!afegit)){
+                    pos++;
+            }
+            if(Entrada.compare(ent, e, this.criteri)<=0){
+                    Entrades.add(pos, e);
+                    afegit= true;
+            }
+        }
+        if(!afegit){
+            Entrades.add(pos, e);
+        }
     }
 
     public Entrada agafa(int num) {
