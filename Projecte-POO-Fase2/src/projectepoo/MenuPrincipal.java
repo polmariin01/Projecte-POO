@@ -21,12 +21,13 @@ public class MenuPrincipal extends Menu{
 
         if("VISITANT".startsWith(com)){
             controlador.index();
-        } else if("SESSIO".startsWith(com)){
+        } else if("INICIA SESSIO".startsWith(com)){
             controlador.sessio();
-        } else if("REGISTRE".startsWith(com)){
+        } else if("REGISTRA'T".startsWith(com)){
             controlador.registre();
         } else if("FI".startsWith(com)){
-            
+            IO.mostrarText("Adiós!");
+            System.exit(0);
         } 
     }
 

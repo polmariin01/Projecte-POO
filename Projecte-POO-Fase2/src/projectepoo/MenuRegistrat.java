@@ -51,7 +51,7 @@ public class MenuRegistrat extends Menu {
             
         } else if("FI".startsWith(com[0])){
             IO.mostrarText("Adiós!");
-            System.exit(0);
+            /*System.exit(0);*/
             
         } else {
             IO.mostrarText("El text introduit no coincideix amb cap opcio.\n");
