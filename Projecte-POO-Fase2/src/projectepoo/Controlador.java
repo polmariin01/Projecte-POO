@@ -249,11 +249,14 @@ public class Controlador {
         IO.mostrarText("[");
         this.registrats.forEach((nom,usuari) -> IO.mostrarText(nom + " ,"));
         IO.mostrarText("]");
-            
-        }
     }
     
-    public void mostraBlog(java.lang.String nom) throws BlogException{
+    public void mostraBlog(java.lang.String nom) throws BlogException {
+        Usuari user = this.registrats.get(nom);
         
+        if (user == null) {
+            throw new BlogException();
+        }
+        IO.mostrarText("mostrasioin del blog del pana este\n");
     }
 }
