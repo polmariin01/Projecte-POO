@@ -9,6 +9,6 @@ package projectepoo;
  *
  * @author Usuari
  */
-public class Menu {
+public abstract class Menu {
     
 }
