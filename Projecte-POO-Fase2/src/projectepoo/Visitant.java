@@ -9,6 +9,9 @@ package projectepoo;
  *
  * @author Usuari
  */
-public class Visitant {
-    
+public class Visitant extends Usuari{
+    public Visitant(Controlador contr){
+        super(contr);
+        
+    }
 }
