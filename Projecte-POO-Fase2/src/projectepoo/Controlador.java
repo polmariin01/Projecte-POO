@@ -273,7 +273,7 @@ public class Controlador {
         if (user == null) {
             throw new BlogException();
         }    
-        user.blog.toString();
+        IO.mostrarText(user.blog.toString());
         //IO.mostrarText("mostrasioin del blog del pana este\n");
     }
 }
