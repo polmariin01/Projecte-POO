@@ -17,13 +17,12 @@ public class MenuVisitant extends Menu{
 
     @Override
     public void executaOpcio(java.lang.String op) throws BlogException {
-        java.lang.String com = op.toUpperCase();
-        String[] parts = com.split(" ");
+        String[] parts = op.split(" ");
+        java.lang.String com = parts[0].toUpperCase();
         
-
-        if("LLISTAUSUARIS".startsWith(parts[0])){
+        if("LLISTAUSUARIS".startsWith(com)){
             controlador.mostraUsuaris();
-        } else if("MOSTRABLOG".startsWith(parts[0])){
+        } else if("MOSTRABLOG".startsWith(com) && parts.length > 1){
             controlador.mostraBlog(parts[1]);
         }else if("FI".startsWith(com)){
             throw new BlogException();   //no ting clar que estigui be
