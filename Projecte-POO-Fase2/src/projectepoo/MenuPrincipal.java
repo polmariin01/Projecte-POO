@@ -41,7 +41,7 @@ public class MenuPrincipal extends Menu{
 
     @Override
     public void mostraOpcions() {
-        System.out.println("\nOpcions:\n\tvisitant\n\tinicia sessio\n\tregistra't\n\tfi\n");
+        System.out.println("\nOpcions:\n\tvisitant\n\tinicia sessio\n\tregistra't\n\tfi");
     }
     
 }

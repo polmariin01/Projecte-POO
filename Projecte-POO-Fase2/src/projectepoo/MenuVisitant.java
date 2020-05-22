@@ -31,7 +31,7 @@ public class MenuVisitant extends Menu{
 
     @Override
     public void mostraOpcions() {
-        System.out.println("Opcions:\n\tllistaUsuaris\n\tmostraBlog nomUsuari\n\tfi\nIntrodueix una opcio:");
+        System.out.println("Opcions:\n\tllistaUsuaris\n\tmostraBlog nomUsuari\n\tfi");
     }
     
 }
