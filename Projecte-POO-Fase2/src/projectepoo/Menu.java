@@ -5,13 +5,12 @@
  */
 package projectepoo;
 
-
 /**
  *
- * @author Usuari
+ * @authors Gil Boleda Feliu i Pol Marín Gargallo
  */
-public abstract class Menu {
 
+public abstract class Menu {
     protected Controlador controlador;
 
     public Menu(Controlador contr) {

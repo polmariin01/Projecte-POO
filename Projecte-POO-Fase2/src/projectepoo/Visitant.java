@@ -7,10 +7,11 @@ package projectepoo;
 
 /**
  *
- * @author Usuari
+ * @authors Gil Boleda Feliu i Pol Marín Gargallo
  */
-public class Visitant extends Usuari{
-    
+
+public class Visitant extends Usuari {
+
     public Visitant(Controlador contr) {
         super(contr);
         this.menu = new MenuVisitant(contr);

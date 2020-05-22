@@ -7,9 +7,9 @@ package projectepoo;
 
 /**
  *
- * @author gilbo
+ * @authors Gil Boleda Feliu i Pol Marín Gargallo
  */
-public class MenuVisitant extends Menu{
+public class MenuVisitant extends Menu {
 
     public MenuVisitant(Controlador contr) {
         super(contr);
@@ -19,16 +19,16 @@ public class MenuVisitant extends Menu{
     public void executaOpcio(java.lang.String op) throws BlogException {
         String[] parts = op.split(" ");
         java.lang.String com = parts[0].toUpperCase();
-        
-        if("LLISTAUSUARIS".startsWith(com)){
+
+        if ("LLISTAUSUARIS".startsWith(com)) {
             controlador.mostraUsuaris();
-        } else if("MOSTRABLOG".startsWith(com) && parts.length > 1){
-            try{
+        } else if ("MOSTRABLOG".startsWith(com) && parts.length > 1) {
+            try {
                 controlador.mostraBlog(parts[1]);
-            }catch(BlogException be){
+            } catch (BlogException be) {
                 IO.mostrarText("No existeix aquest usuari.");
             }
-        }else if("FI".startsWith(com)){
+        } else if ("FI".startsWith(com)) {
             throw new BlogException();   //no ting clar que estigui be
         }
     }
@@ -37,5 +37,5 @@ public class MenuVisitant extends Menu{
     public void mostraOpcions() {
         System.out.println("Opcions:\n\tllistaUsuaris\n\tmostraBlog nomUsuari\n\tfi");
     }
-    
+
 }

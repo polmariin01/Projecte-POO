@@ -7,21 +7,22 @@ package projectepoo;
 
 /**
  *
- * @author Usuari
+ * @authors Gil Boleda Feliu i Pol Marín Gargallo
  */
 public class MenuRegistrat extends Menu {
 
     public MenuRegistrat(Controlador contr) {
         super(contr);
     }
+
     @Override
-    public void executaOpcio(String op) throws BlogException{
+    public void executaOpcio(String op) throws BlogException {
         java.lang.String com[] = op.split(" ");
         com[0] = com[0].toUpperCase();
 
-        if("INDEX".startsWith(com[0])){
+        if ("INDEX".startsWith(com[0])) {
             controlador.index();
-        } else if("MOSTRAR".startsWith(com[0])){
+        } else if ("MOSTRAR".startsWith(com[0])) {
             if (com.length == 2 && Integer.valueOf(com[1]) >= 0) {
                 IO.mostrarText("\n");
                 controlador.mostraEntrada(Integer.valueOf(com[1]));
@@ -29,30 +30,30 @@ public class MenuRegistrat extends Menu {
             } else {
                 IO.mostrarText("Entrada incorrecte.\n");
             }
-            
-        } else if("NOVA".startsWith(com[0])){
+
+        } else if ("NOVA".startsWith(com[0])) {
             controlador.novaEntrada();
 
-        } else if("ELIMINA".startsWith(com[0])){
+        } else if ("ELIMINA".startsWith(com[0])) {
             if (com.length == 2 && Integer.valueOf(com[1]) >= 0) {
                 controlador.eliminaEntrada(Integer.valueOf(com[1]));
             } else {
                 IO.mostrarText("Entrada incorrecte.\n");
             }
-            
-        } else if("ORDENA".startsWith(com[0])){
+
+        } else if ("ORDENA".startsWith(com[0])) {
             controlador.ordena();
-            
-        } else if("DATES".startsWith(com[0])){
+
+        } else if ("DATES".startsWith(com[0])) {
             controlador.dates();
-            
-        } else if("TOTES".startsWith(com[0])){
+
+        } else if ("TOTES".startsWith(com[0])) {
             controlador.mostraEntrades();
-            
-        } else if("FI".startsWith(com[0])){
+
+        } else if ("FI".startsWith(com[0])) {
             IO.mostrarText("sortir del menu registrat");
             throw new BlogException();
-            
+
         } else {
             IO.mostrarText("El text introduit no coincideix amb cap opcio.\n");
         }
@@ -64,5 +65,5 @@ public class MenuRegistrat extends Menu {
                 + "Elimina <num>\n\tOrdena\n\tDates\n\t"
                 + "Totes\n\tFi");
     }
-    
+
 }
