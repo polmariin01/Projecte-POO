@@ -18,12 +18,13 @@ public class MenuVisitant extends Menu{
     @Override
     public void executaOpcio(java.lang.String op) throws BlogException {
         java.lang.String com = op.toUpperCase();
+        String[] parts = com.split(" ");
         
 
-        if("LLISTAUSUARIS".startsWith(com)){
+        if("LLISTAUSUARIS".startsWith(parts[0])){
             controlador.mostraUsuaris();
-        } else if("MOSTRABLOG NOMUSUARI".startsWith(com)){
-            controlador.mostraEntrades();
+        } else if("MOSTRABLOG".startsWith(parts[0])){
+            controlador.mostraBlog(parts[1]);
         }else if("FI".startsWith(com)){
             throw new BlogException();   //no ting clar que estigui be
         }
