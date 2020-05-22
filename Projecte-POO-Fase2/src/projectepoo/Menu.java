@@ -17,11 +17,17 @@ public abstract class Menu {
         this.controlador = contr;
     }
 
-    public void cicle() throws BlogException {
-        String opcio;
-        this.mostraOpcions();
-        opcio = this.demanaOpcio();
-        this.executaOpcio(opcio);
+    public void cicle(){
+        java.lang.String opcio = "";
+        do{
+            try {
+                this.mostraOpcions();
+                opcio = this.demanaOpcio();
+                this.executaOpcio(opcio);
+            } catch (BlogException be){
+                IO.mostraError(be.getMessage());
+            }
+        } while ("FI".startsWith(opcio.toUpperCase()));
     }
 
     public java.lang.String demanaOpcio() {

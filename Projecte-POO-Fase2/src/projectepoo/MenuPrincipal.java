@@ -16,31 +16,24 @@ public class MenuPrincipal extends Menu {
     }
 
     @Override
-    public void executaOpcio(String op) {
+    public void executaOpcio(String op) throws BlogException{
         op = op.toUpperCase();
 
-        if ("VISITANT".startsWith(op)) {
-            controlador.visitant();
-        } else if ("INICIA SESSIO".startsWith(op)) {
-            try {
+        try {
+            if ("VISITANT".startsWith(op)) {
+                controlador.visitant();
+            } else if ("INICIA SESSIO".startsWith(op)) {
                 controlador.sessio();
-            } catch (BlogException exception) {
-                IO.mostrarText(exception.getMessage());
-            }
-        } else if ("REGISTRA'T".startsWith(op)) {
-            try {
+            } else if ("REGISTRA'T".startsWith(op)) {
                 controlador.registre();
-            } catch (BlogException exception) {
-                //IO.mostrarText("Notify: ");
-                //exception.notify();
-                //IO.mostrarText("getMessage: ");
-                IO.mostrarText(exception.getMessage());
-                //IO.mostrarText("PrintStackTrace: ");
-                //exception.toString();
+            } else if ("FI".startsWith(op)) {
+                IO.mostrarText("Adiós!");
+                System.exit(0);
+            } else {
+                throw new BlogException("Opció incorrecta!");
             }
-        } else if ("FI".startsWith(op)) {
-            IO.mostrarText("Adiós!");
-            System.exit(0);
+        } catch (BlogException be){
+            throw be;
         }
     }
 

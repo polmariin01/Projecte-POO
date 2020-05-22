@@ -20,14 +20,12 @@ public class InterficieUsuari {
     }
 
     public void cicle() throws BlogException {
-       this.menu.cicle();
+           this.menu.cicle();
     }
 
     public static void main(java.lang.String[] args) throws BlogException {
         InterficieUsuari interficie = new InterficieUsuari();
         IO.mostrarText("Hola!\n");
-        while (true) {
-            interficie.menu.cicle();
-        }
+        interficie.menu.cicle();
     }
 }

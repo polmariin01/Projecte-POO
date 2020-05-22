@@ -23,4 +23,8 @@ public class IO {
     public static void mostrarText(java.lang.String text) {
         System.out.print(text);
     }
+    
+    public static void mostraError(java.lang.String text){
+        System.out.print(text);
+    }
 }

@@ -55,7 +55,7 @@ public class MenuRegistrat extends Menu {
             throw new BlogException();
 
         } else {
-            IO.mostrarText("El text introduit no coincideix amb cap opcio.\n");
+            throw new BlogException("Opció incorrecta");
         }
     }
 
@@ -63,7 +63,7 @@ public class MenuRegistrat extends Menu {
     public void mostraOpcions() {
         IO.mostrarText("\nOpcions: \n\n\tIndex\n\tMostra <num>\n\tNova\n\t"
                 + "Elimina <num>\n\tOrdena\n\tDates\n\t"
-                + "Totes\n\tFi");
+                + "Totes\n\tFi\n");
     }
 
 }

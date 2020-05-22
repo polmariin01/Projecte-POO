@@ -211,12 +211,8 @@ public class Controlador {
     }
     
     public void visitant(){
-        try{
-            while (1==1){
-                this.usuariActual = new Visitant(this);        
-                this.usuariActual.menu.cicle();
-            }
-        } catch(BlogException be){}
+        this.usuariActual = new Visitant(this);        
+        this.usuariActual.menu.cicle();
     }
     
     public void sessio() throws BlogException{
@@ -226,20 +222,11 @@ public class Controlador {
         IO.mostrarText("Password? ");
         pass = IO.llegeixText();
         
-        Registrat user = this.registrats.get(us);
-        
-        if (user == null || !user.verificaPassword(pass)){
+        if (!this.registrats.containsKey(us) || !this.registrats.get(us).verificaPassword(pass)){
             throw new BlogException("Usuari o password incorrecte!\n");
         }
-        this.usuariActual = user;
-        try {
-            while (1==1){
-            user.getMenu().cicle();
-            }
-        } catch (BlogException be ){
-            IO.mostrarText("has sortit del menú registrat");
-        }
-
+        this.usuariActual = this.registrats.get(us);
+        this.usuariActual.getMenu().cicle();
     }
     
     public void registre() throws BlogException{
@@ -252,7 +239,7 @@ public class Controlador {
         IO.mostrarText("Repeteix el password: ");
         pass2 =IO.llegeixText();
         if (!pass.equals(pass2)){
-            throw new BlogException("Password incorrecte!\n");
+            throw new BlogException("Password incorrecte!");
         }
         this.registrats.put(nom, new Registrat(this,nom,pass));
     }
@@ -261,9 +248,9 @@ public class Controlador {
         if (this.registrats.isEmpty()){
             IO.mostrarText("No hi ha cap usuari.\n");
         } else {
-            IO.mostrarText("[");
-            this.registrats.forEach((nom,usuari) -> IO.mostrarText(nom + " ,"));
-            IO.mostrarText("]\n");
+            StringBuilder users = new StringBuilder("[");
+            this.registrats.forEach((nom,usuari) -> users.append(nom).append(" ,"));
+            users.replace(users.length()-2, users.length()-1, "]\n");
         }
     }
     
@@ -272,7 +259,7 @@ public class Controlador {
             Registrat user = this.registrats.get(nom);            
             IO.mostrarText(user.blog.toString());
         } else {
-            throw new BlogException();
+            throw new BlogException("Usuari desconegut!");
         }    
     }
 }
