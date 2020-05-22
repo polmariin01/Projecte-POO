@@ -20,7 +20,7 @@ public class MenuPrincipal extends Menu{
         
 
         if("VISITANT".startsWith(op)){
-            controlador.index();
+            controlador.visitant();
         } else if("INICIA SESSIO".startsWith(op)){
             try{
                 controlador.sessio();
