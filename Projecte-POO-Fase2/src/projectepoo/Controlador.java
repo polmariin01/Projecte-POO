@@ -251,6 +251,7 @@ public class Controlador {
             StringBuilder users = new StringBuilder("[");
             this.registrats.forEach((nom,usuari) -> users.append(nom).append(" ,"));
             users.replace(users.length()-2, users.length()-1, "]\n");
+            IO.mostrarText(users.toString());
         }
     }
     
