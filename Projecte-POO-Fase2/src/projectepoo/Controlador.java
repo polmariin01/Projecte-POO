@@ -268,12 +268,11 @@ public class Controlador {
     }
     
     public void mostraBlog(java.lang.String nom) throws BlogException {
-        Registrat user = this.registrats.get(nom);
-        
-        if (user == null) {
+        if (this.registrats.containsKey(nom)){
+            Registrat user = this.registrats.get(nom);            
+            IO.mostrarText(user.blog.toString());
+        } else {
             throw new BlogException();
         }    
-        IO.mostrarText(user.blog.toString());
-        //IO.mostrarText("mostrasioin del blog del pana este\n");
     }
 }
