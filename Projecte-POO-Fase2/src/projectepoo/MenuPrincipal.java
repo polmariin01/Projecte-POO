@@ -17,7 +17,8 @@ public class MenuPrincipal extends Menu {
 
     @Override
     public void executaOpcio(String op) throws BlogException{
-        op = op.toUpperCase();
+        op = ((op.isEmpty())? "buit": op);
+        op = op.toUpperCase();        
 
         try {
             if ("VISITANT".startsWith(op)) {

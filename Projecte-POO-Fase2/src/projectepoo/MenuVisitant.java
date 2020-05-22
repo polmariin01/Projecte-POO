@@ -26,7 +26,7 @@ public class MenuVisitant extends Menu {
             try {
                 controlador.mostraBlog(parts[1]);
             } catch (BlogException be) {
-                IO.mostrarText("No existeix aquest usuari.");
+                throw be;
             }
         }
     }

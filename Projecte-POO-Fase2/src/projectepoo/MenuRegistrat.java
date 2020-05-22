@@ -19,36 +19,43 @@ public class MenuRegistrat extends Menu {
     public void executaOpcio(String op) throws BlogException {
         java.lang.String com[] = op.split(" ");
         com[0] = com[0].toUpperCase();
-
+        Registrat regis = (Registrat) this.controlador.usuariActual;
+                
         if ("INDEX".startsWith(com[0])) {
-            controlador.index();
+            this.controlador.index();
         } else if ("MOSTRAR".startsWith(com[0])) {
             if (com.length == 2 && Integer.valueOf(com[1]) >= 0) {
                 IO.mostrarText("\n");
-                controlador.mostraEntrada(Integer.valueOf(com[1]));
+                //controlador.usuariActual.contr.mostraEntrada(Integer.valueOf(com[1]));
+                this.controlador.mostraEntrada(Integer.valueOf(com[1]));
                 IO.mostrarText("\n");
             } else {
                 IO.mostrarText("Entrada incorrecte.\n");
             }
 
         } else if ("NOVA".startsWith(com[0])) {
-            controlador.novaEntrada();
+//            controlador.usuariActual.contr.novaEntrada();
+            this.controlador.novaEntrada();
 
         } else if ("ELIMINA".startsWith(com[0])) {
             if (com.length == 2 && Integer.valueOf(com[1]) >= 0) {
-                controlador.eliminaEntrada(Integer.valueOf(com[1]));
+//                controlador.usuariActual.contr.eliminaEntrada(Integer.valueOf(com[1]));
+                this.controlador.eliminaEntrada(Integer.valueOf(com[1]));
             } else {
                 IO.mostrarText("Entrada incorrecte.\n");
             }
 
         } else if ("ORDENA".startsWith(com[0])) {
-            controlador.ordena();
+//            controlador.usuariActual.contr.ordena();
+            this.controlador.ordena();
 
         } else if ("DATES".startsWith(com[0])) {
-            controlador.dates();
+//            controlador.usuariActual.contr.dates();
+            this.controlador.dates();
 
         } else if ("TOTES".startsWith(com[0])) {
-            controlador.mostraEntrades();
+//            controlador.usuariActual.contr.mostraEntrades();
+            this.controlador.mostraEntrades();
 
         } else {
             throw new BlogException("Opció incorrecta");

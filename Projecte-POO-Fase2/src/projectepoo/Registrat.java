@@ -21,6 +21,7 @@ public class Registrat extends Usuari {
         this.nomUsuari = nom;
         this.password = passwd;
         this.menu = new MenuRegistrat(this.contr);
+        this.blog = new EntradesBlog();
     }
 
     public void afageixEntrada(Entrada e) {

@@ -27,7 +27,7 @@ public abstract class Menu {
             } catch (BlogException be){
                 IO.mostraError(be.getMessage());
             }
-        } while (!"FI".startsWith(opcio.toUpperCase()));
+        } while (opcio.isEmpty() || !"FI".startsWith(opcio.toUpperCase()));
     }
 
     public java.lang.String demanaOpcio() {

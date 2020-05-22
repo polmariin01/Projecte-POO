@@ -35,6 +35,7 @@ public class Controlador {
         java.lang.String data;
         java.lang.String[] actual = {"inicial", "final"}, dia;
         Temps[] t = {null,null};
+        Registrat usuari = (Registrat) this.usuariActual;
         boolean formatcorrecte, be;
         for (int i = 0; i < 2; i++) {
             be = false;
@@ -64,18 +65,19 @@ public class Controlador {
             } while (!be);
         }
         IO.mostrarText(t[0].toString() + "\n" + t[1].toString() + "\n");
-        IO.mostrarText(this.entradesBlog.entreDates(t[0], t[1]));
+        IO.mostrarText(usuari.blog.entreDates(t[0], t[1]));
     }
 
     public void eliminaEntrada(int num) {
-
-        if (this.entradesBlog.Entrades.isEmpty()) {
+        Registrat usuari = (Registrat) this.usuariActual;
+        if (usuari.blog.Entrades.isEmpty()) {
             IO.mostrarText("Llista buida.\n");
         } else if (num < 0) {
             IO.mostrarText("Entrada no vàlida.\n");
         }
         
-        Entrada e = this.entradesBlog.elimina(num);
+        Entrada e = usuari.blog.elimina(num);
+        this.entradesBlog.elimina(num);
 
         if (e==null) {
             IO.mostrarText("No hi ha cap element amb aquesta id.\n");
@@ -85,23 +87,25 @@ public class Controlador {
     }
 
     public void index() {
-        IO.mostrarText("\nIndex {\n" + entradesBlog.index() + "}\n");
+        Registrat usuari = (Registrat) this.usuariActual;
+        IO.mostrarText("\nIndex {\n" + usuari.blog.index() + "}\n");
     }
 
     public void mostraEntrada(int num) {
-
-        if (this.entradesBlog.Entrades.isEmpty()) {
+        Registrat usuari = (Registrat) this.usuariActual;
+        if (usuari.blog.Entrades.isEmpty()) {
             IO.mostrarText("Llista buida.\n");
-        } else if (num >= this.entradesBlog.Entrades.size() || num < 0) {
+        } else if (num >= usuari.blog.Entrades.size() || num < 0) {
             IO.mostrarText("Entrada no vàlida.\n");
         } else {
-            Entrada e = this.entradesBlog.agafa(num);
+            Entrada e = usuari.blog.agafa(num);
             IO.mostrarText(e.toString());
         }
     }
 
     public void mostraEntrades() {
-        for (int i = 0; i < this.entradesBlog.Entrades.size(); i++) {
+        Registrat usuari = (Registrat) this.usuariActual;
+        for (int i = 0; i < usuari.blog.Entrades.size(); i++) {
             this.mostraEntrada(i);
             IO.mostrarText("\n");
         }
@@ -109,6 +113,7 @@ public class Controlador {
 
     public void novaEntrada() {
         Entrada e;
+        Registrat usuari = (Registrat) this.usuariActual;        
         IO.mostrarText("Titol? ");
         String t = IO.llegeixText();
         IO.mostrarText("Text? ");
@@ -194,9 +199,11 @@ public class Controlador {
 
         e = new Entrada(t, ttx, dia + " " + hora);
         this.entradesBlog.afageixOrdenat(e);
+        usuari.blog.afageixOrdenat(e);
     }
 
     public void ordena() {
+        Registrat usuari = (Registrat) this.usuariActual;
         java.lang.String criteri;
         do {
             IO.mostrarText("Criteri? (num/titol) ");
@@ -206,13 +213,13 @@ public class Controlador {
             }
         } while (!criteri.equalsIgnoreCase("num") && !criteri.equalsIgnoreCase("titol"));
 
-        this.entradesBlog.setCriteri(criteri.toLowerCase());
-        this.entradesBlog.ordena();
+        usuari.blog.setCriteri(criteri.toLowerCase());
+        usuari.blog.ordena();
     }
     
     public void visitant(){
         this.usuariActual = new Visitant(this);        
-        this.usuariActual.menu.cicle();
+        this.usuariActual.getMenu().cicle();
     }
     
     public void sessio() throws BlogException{
@@ -225,7 +232,8 @@ public class Controlador {
         if (!this.registrats.containsKey(us) || !this.registrats.get(us).verificaPassword(pass)){
             throw new BlogException("Usuari o password incorrecte!\n");
         }
-        this.usuariActual = this.registrats.get(us);
+        Registrat actual = this.registrats.get(us);
+        this.usuariActual = actual;
         this.usuariActual.getMenu().cicle();
     }
     
@@ -261,6 +269,7 @@ public class Controlador {
             IO.mostrarText(user.blog.toString());
         } else {
             throw new BlogException("Usuari desconegut!");
-        }    
+        }
+        
     }
 }
