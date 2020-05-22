@@ -26,7 +26,7 @@ public class InterficieUsuari {
     public static void main(java.lang.String[] args) throws BlogException {
         InterficieUsuari interficie = new InterficieUsuari();
         IO.mostrarText("Hola!\n");
-        while (1==1) {
+        while (true) {
             interficie.menu.cicle();
         }
     }
