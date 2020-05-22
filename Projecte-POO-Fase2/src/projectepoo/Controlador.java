@@ -211,7 +211,12 @@ public class Controlador {
     }
     
     public void visitant(){
-        this.usuariActual = new Visitant(this);
+        try{
+            while (1==1){
+                this.usuariActual = new Visitant(this);        
+                this.usuariActual.menu.cicle();
+            }
+        } catch(BlogException be){}
     }
     
     public void sessio() throws BlogException{
