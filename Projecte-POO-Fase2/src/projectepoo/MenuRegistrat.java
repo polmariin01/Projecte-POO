@@ -50,6 +50,7 @@ public class MenuRegistrat extends Menu {
             controlador.mostraEntrades();
             
         } else if("FI".startsWith(com[0])){
+            IO.mostrarText("sortir del menu registrat");
             throw new BlogException();
             
         } else {

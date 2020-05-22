@@ -13,6 +13,6 @@ public class Visitant extends Usuari{
     
     public Visitant(Controlador contr) {
         super(contr);
-        this.menu = new MenuVisitant();
+        this.menu = new MenuVisitant(contr);
     }
 }

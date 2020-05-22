@@ -227,7 +227,13 @@ public class Controlador {
             throw new BlogException("Usuari o password incorrecte!\n");
         }
         this.usuariActual = user;
-        user.getMenu().cicle();
+        try {
+            while (1==1){
+            user.getMenu().cicle();
+            }
+        } catch (BlogException be ){
+            IO.mostrarText("has sortit del menú registrat");
+        }
 
     }
     
