@@ -264,6 +264,8 @@ public class Controlador {
         if (user == null) {
             throw new BlogException();
         }
-        IO.mostrarText("mostrasioin del blog del pana este\n");
+        EntradesBlog eb = user.contr.entradesBlog;
+        eb.toString();
+        //IO.mostrarText("mostrasioin del blog del pana este\n");
     }
 }
