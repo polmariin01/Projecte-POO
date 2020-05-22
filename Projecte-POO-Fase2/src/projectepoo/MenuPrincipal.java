@@ -34,9 +34,9 @@ public class MenuPrincipal extends Menu{
                 //IO.mostrarText("Notify: ");
                 //exception.notify();
                 //IO.mostrarText("getMessage: ");
-                //IO.mostrarText(exception.getMessage());
+                IO.mostrarText(exception.getMessage());
                 //IO.mostrarText("PrintStackTrace: ");
-                exception.toString();
+                //exception.toString();
             }
         } else if("FI".startsWith(op)){
             IO.mostrarText("Adiós!");

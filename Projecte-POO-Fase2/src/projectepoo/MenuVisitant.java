@@ -23,7 +23,11 @@ public class MenuVisitant extends Menu{
         if("LLISTAUSUARIS".startsWith(com)){
             controlador.mostraUsuaris();
         } else if("MOSTRABLOG".startsWith(com) && parts.length > 1){
-            controlador.mostraBlog(parts[1]);
+            try{
+                controlador.mostraBlog(parts[1]);
+            }catch(BlogException be){
+                IO.mostrarText("No existeix aquest usuari.");
+            }
         }else if("FI".startsWith(com)){
             throw new BlogException();   //no ting clar que estigui be
         }

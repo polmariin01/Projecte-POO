@@ -80,7 +80,7 @@ public class Controlador {
         if (e==null) {
             IO.mostrarText("No hi ha cap element amb aquesta id.\n");
         } else {
-            IO.mostrarText("Elimino " + e.toString());
+            IO.mostrarText("Elimino " + e.toString() + "\n");
         }
     }
 
@@ -258,9 +258,13 @@ public class Controlador {
     }
     
     public void mostraUsuaris(){
-        IO.mostrarText("[");
-        this.registrats.forEach((nom,usuari) -> IO.mostrarText(nom + " ,"));
-        IO.mostrarText("]\n");
+        if (this.registrats.isEmpty()){
+            IO.mostrarText("No hi ha cap usuari.\n");
+        } else {
+            IO.mostrarText("[");
+            this.registrats.forEach((nom,usuari) -> IO.mostrarText(nom + " ,"));
+            IO.mostrarText("]\n");
+        }
     }
     
     public void mostraBlog(java.lang.String nom) throws BlogException {
@@ -268,7 +272,7 @@ public class Controlador {
         
         if (user == null) {
             throw new BlogException();
-        }
+        } 
         user.blog.toString();
         //IO.mostrarText("mostrasioin del blog del pana este\n");
     }
