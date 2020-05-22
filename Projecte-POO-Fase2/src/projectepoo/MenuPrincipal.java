@@ -31,7 +31,12 @@ public class MenuPrincipal extends Menu{
             try{
                 controlador.registre();
             }catch(BlogException exception){
-                IO.mostrarText(exception.getMessage());
+                //IO.mostrarText("Notify: ");
+                //exception.notify();
+                //IO.mostrarText("getMessage: ");
+                //IO.mostrarText(exception.getMessage());
+                //IO.mostrarText("PrintStackTrace: ");
+                exception.toString();
             }
         } else if("FI".startsWith(op)){
             IO.mostrarText("Adiós!");

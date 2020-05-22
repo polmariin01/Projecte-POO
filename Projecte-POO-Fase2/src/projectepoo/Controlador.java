@@ -264,13 +264,12 @@ public class Controlador {
     }
     
     public void mostraBlog(java.lang.String nom) throws BlogException {
-        Usuari user = this.registrats.get(nom);
+        Registrat user = this.registrats.get(nom);
         
         if (user == null) {
             throw new BlogException();
         }
-        EntradesBlog eb = user.contr.entradesBlog;
-        eb.toString();
+        user.blog.toString();
         //IO.mostrarText("mostrasioin del blog del pana este\n");
     }
 }
