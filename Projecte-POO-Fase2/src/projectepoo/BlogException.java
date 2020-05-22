@@ -7,15 +7,16 @@ package projectepoo;
 
 /**
  *
- * @author Usuari
+ * @authors Gil Boleda Feliu i Pol Marín Gargallo
  */
+
 public class BlogException extends java.lang.Exception {
-    
-    public BlogException(){
+
+    public BlogException() {
         super();
     }
-    
-    public BlogException(java.lang.String message){
+
+    public BlogException(java.lang.String message) {
         super(message);
     }
 }

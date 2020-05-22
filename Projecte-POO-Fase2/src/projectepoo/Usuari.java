@@ -7,18 +7,19 @@ package projectepoo;
 
 /**
  *
- * @author Usuari
+ * @authors Gil Boleda Feliu i Pol Marín Gargallo
  */
+
 public abstract class Usuari {
     protected Controlador contr;
     protected Menu menu;
-    
-    public Usuari(Controlador contr){
+
+    public Usuari(Controlador contr) {
         this.contr = contr;
         this.menu = null;
     }
-    
-    public Menu getMenu(){
+
+    public Menu getMenu() {
         return this.menu;
     }
 }

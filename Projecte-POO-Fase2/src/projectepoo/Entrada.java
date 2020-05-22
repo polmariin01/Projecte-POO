@@ -53,8 +53,7 @@ public class Entrada {
             default:
                 return 0;
         }
-    } 
-    
+    }
 
     @Override
     public java.lang.String toString() {

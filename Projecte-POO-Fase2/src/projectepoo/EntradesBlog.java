@@ -11,6 +11,7 @@ import java.util.LinkedList;
  *
  * @authors Gil Boleda Feliu i Pol Marín Gargallo
  */
+
 public class EntradesBlog {
 
     private java.lang.String criteri;

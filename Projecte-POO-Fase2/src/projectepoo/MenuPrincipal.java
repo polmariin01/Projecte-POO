@@ -7,30 +7,30 @@ package projectepoo;
 
 /**
  *
- * @author Usuari
+ * @authors Gil Boleda Feliu i Pol Marín Gargallo
  */
-public class MenuPrincipal extends Menu{
+public class MenuPrincipal extends Menu {
 
     public MenuPrincipal(Controlador contr) {
         super(contr);
     }
+
     @Override
     public void executaOpcio(String op) {
         op = op.toUpperCase();
-        
 
-        if("VISITANT".startsWith(op)){
+        if ("VISITANT".startsWith(op)) {
             controlador.visitant();
-        } else if("INICIA SESSIO".startsWith(op)){
-            try{
+        } else if ("INICIA SESSIO".startsWith(op)) {
+            try {
                 controlador.sessio();
-            }catch(BlogException exception){
+            } catch (BlogException exception) {
                 IO.mostrarText(exception.getMessage());
             }
-        } else if("REGISTRA'T".startsWith(op)){
-            try{
+        } else if ("REGISTRA'T".startsWith(op)) {
+            try {
                 controlador.registre();
-            }catch(BlogException exception){
+            } catch (BlogException exception) {
                 //IO.mostrarText("Notify: ");
                 //exception.notify();
                 //IO.mostrarText("getMessage: ");
@@ -38,15 +38,15 @@ public class MenuPrincipal extends Menu{
                 //IO.mostrarText("PrintStackTrace: ");
                 //exception.toString();
             }
-        } else if("FI".startsWith(op)){
+        } else if ("FI".startsWith(op)) {
             IO.mostrarText("Adiós!");
             System.exit(0);
-        } 
+        }
     }
 
     @Override
     public void mostraOpcions() {
         System.out.println("\nOpcions:\n\tvisitant\n\tinicia sessio\n\tregistra't\n\tfi");
     }
-    
+
 }

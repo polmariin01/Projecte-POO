@@ -11,7 +11,6 @@ package projectepoo;
  */
 
 public class InterficieUsuari {
-
     public Controlador controlador;
     private Menu menu;
 
