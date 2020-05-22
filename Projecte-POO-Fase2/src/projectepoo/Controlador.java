@@ -260,7 +260,7 @@ public class Controlador {
     public void mostraUsuaris(){
         IO.mostrarText("[");
         this.registrats.forEach((nom,usuari) -> IO.mostrarText(nom + " ,"));
-        IO.mostrarText("]");
+        IO.mostrarText("]\n");
     }
     
     public void mostraBlog(java.lang.String nom) throws BlogException {

@@ -62,7 +62,7 @@ public class MenuRegistrat extends Menu {
     public void mostraOpcions() {
         IO.mostrarText("\nOpcions: \n\n\tIndex\n\tMostra <num>\n\tNova\n\t"
                 + "Elimina <num>\n\tOrdena\n\tDates\n\t"
-                + "Totes\n\tFi\n");
+                + "Totes\n\tFi");
     }
     
 }
