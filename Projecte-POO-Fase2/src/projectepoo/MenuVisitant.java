@@ -28,8 +28,6 @@ public class MenuVisitant extends Menu {
             } catch (BlogException be) {
                 IO.mostrarText("No existeix aquest usuari.");
             }
-        } else if ("FI".startsWith(com)) {
-            throw new BlogException();   //no ting clar que estigui be
         }
     }
 
