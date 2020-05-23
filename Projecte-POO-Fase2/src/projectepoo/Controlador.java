@@ -253,7 +253,12 @@ public class Controlador {
             this.registrats.forEach((nom,usuari) -> users.append(nom).append(" ,"));
             users.replace(users.length()-2, users.length()-1, "]\n");
             String a[] = users.toString().split(",");
-            IO.mostrarText(a[0]+","+a[1]);
+            String s = "";
+            for(int i=0;i<a.length-1;i++){
+                s = s+a[i]+",";
+            }
+            s = s+a[a.length-1];
+            IO.mostrarText(s);
         }
     }
     
