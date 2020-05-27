@@ -16,14 +16,17 @@ public abstract class Menu {
     public Menu(Controlador contr) {
         this.controlador = contr;
     }
-
     public void cicle(){
         java.lang.String opcio = "";
         do{
             try {
                 this.mostraOpcions();
                 opcio = this.demanaOpcio();
-                this.executaOpcio(opcio);
+                if(opcio.isEmpty()){
+                   IO.mostraError("Opcio incorrecta!\n");
+                }else{
+                   this.executaOpcio(opcio); 
+                }
             } catch (BlogException be){
                 IO.mostraError(be.getMessage());
             }
