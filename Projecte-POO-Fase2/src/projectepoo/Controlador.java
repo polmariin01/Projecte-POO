@@ -22,13 +22,6 @@ public class Controlador {
     public Controlador() {
         this.entradesBlog = new EntradesBlog();
         registrats = new HashMap<>();
-        Entrada e1 = new Entrada("t1","tx1","2020-05-15 08:42:00");
-        Entrada e2 = new Entrada("t2","tx2","2019-05-15 08:42:00");
-        Entrada e3 = new Entrada("t3","tx3","2018-05-15 08:42:00");
-        this.entradesBlog.afageixOrdenat(e1);
-        this.entradesBlog.afageixOrdenat(e2);
-        this.entradesBlog.afageixOrdenat(e3);
-        
     }
 
     public void dates() {
@@ -259,7 +252,13 @@ public class Controlador {
             StringBuilder users = new StringBuilder("[");
             this.registrats.forEach((nom,usuari) -> users.append(nom).append(" ,"));
             users.replace(users.length()-2, users.length()-1, "]\n");
-            IO.mostrarText(users.toString());
+            String a[] = users.toString().split(",");
+            String s = "";
+            for(int i=0;i<a.length-1;i++){
+                s = s+a[i]+",";
+            }
+            s = s+a[a.length-1];
+            IO.mostrarText(s);
         }
     }
     

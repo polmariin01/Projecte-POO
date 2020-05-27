@@ -19,16 +19,15 @@ public class MenuVisitant extends Menu {
     public void executaOpcio(java.lang.String op) throws BlogException {
         String[] parts = op.split(" ");
         java.lang.String com = parts[0].toUpperCase();
-
         if ("LLISTAUSUARIS".startsWith(com)) {
-            controlador.mostraUsuaris();
-        } else if ("MOSTRABLOG".startsWith(com) && parts.length > 1) {
-            try {
-                controlador.mostraBlog(parts[1]);
-            } catch (BlogException be) {
-                throw be;
+                controlador.mostraUsuaris();
+            } else if ("MOSTRABLOG".startsWith(com) && parts.length >= 1) {
+                try {
+                    controlador.mostraBlog(parts[1]);
+                } catch (BlogException be) {
+                    throw be;
+                }
             }
-        }
     }
 
     @Override
